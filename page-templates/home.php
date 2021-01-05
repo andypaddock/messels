@@ -58,6 +58,10 @@ get_header();?>
 				</div>
 			
 		</div>
+		<div class="section section__narrow testimonials">
+
+		<?php get_template_part('template-parts/testimonial');?>
+</div>
 		<div class="section section__narrow contact">
 			
 				<div>
@@ -71,5 +75,6 @@ get_header();?>
 				</div>
 			
 		</div>
+		
 	</div>
 <?php get_footer();?>
