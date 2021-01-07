@@ -1,0 +1,255 @@
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .header {
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    flex: 1;
+
+    &__logo-box {
+      svg {
+        width: 100%;
+        margin-top: 3rem;
+      }
+    }
+
+    &__logo {
+      height: 3.5rem;
+    }
+
+    &__text-box {
+      text-align: center;
+      margin: 3rem 0;
+      a {
+        text-transform: uppercase;
+        color: $color-secondary-light;
+        font-weight: 700;
+      }
+    }
+  }
+}
+.nav {
+  @include respond(tab-port) {
+    display: none;
+  }
+}
+
+#menu-toggle {
+  display: none;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  position: relative;
+  cursor: pointer;
+  // background: rgba(255, 255, 255, .4);
+  border-radius: 5px;
+  grid-column: span 6;
+  @include respond(tab-port) {
+    display: block;
+  }
+
+  .mobile-menu {
+    height: 0;
+    overflow: hidden;
+  }
+
+  span {
+    display: block;
+    background: #566973;
+    border-radius: 2px;
+    transition: 0.25s ease-in-out;
+  }
+
+  &:hover {
+    // background: rgba(255, 255, 255, .8);
+  }
+
+  #hamburger {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    span {
+      width: 60px;
+      height: 4px;
+      position: relative;
+      top: 24px;
+      left: 20px;
+      margin: 10px 0;
+
+      &:nth-child(1) {
+        transition-delay: 0.5s;
+      }
+
+      &:nth-child(2) {
+        transition-delay: 0.625s;
+      }
+
+      &:nth-child(3) {
+        transition-delay: 0.75s;
+      }
+    }
+  }
+
+  #cross {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: rotate(45deg);
+
+    span {
+      &:nth-child(1) {
+        height: 0%;
+        width: 4px;
+        position: absolute;
+        top: 10%;
+        left: 48px;
+        transition-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        width: 0%;
+        height: 4px;
+        position: absolute;
+        left: 10%;
+        top: 48px;
+        transition-delay: 0.25s;
+      }
+    }
+  }
+}
+
+#menu-toggle.open {
+  .mobile-menu {
+    height: 100vh;
+  }
+
+  #hamburger {
+    span {
+      width: 0%;
+
+      &:nth-child(1) {
+        transition-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        transition-delay: 0.125s;
+      }
+
+      &:nth-child(3) {
+        transition-delay: 0.25s;
+      }
+    }
+  }
+
+  #cross {
+    span {
+      &:nth-child(1) {
+        height: 80%;
+        transition-delay: 0.625s;
+      }
+    }
+
+    span {
+      &:nth-child(2) {
+        width: 80%;
+        transition-delay: 0.375s;
+      }
+    }
+  }
+}
+
+/* The Overlay (background) */
+.overlay {
+  max-height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+
+  &.open {
+    max-height: 80vh;
+  }
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay a {
+  padding: 1rem;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+  line-height: 1.4em;
+  font-weight: 400;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+}
+
+.overlay-button {
+  margin-top: 2rem;
+  padding: 0.5rem 0;
+
+  a {
+  }
+}
+.contact-button {
+  background: $color-secondary-light;
+  display: grid;
+  place-content: center;
+  grid-column: 10/13;
+  margin-bottom: -1.5rem;
+  z-index: 1;
+  @include respond(tab-port) {
+    grid-column: span 6;
+    margin-bottom: 0;
+  }
+  a {
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+}
+.nav {
+  font-size: 0.9em;
+  grid-column: 1/10;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 1.3rem;
+    li {
+      width: 100%;
+      text-align: center;
+      a {
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+        display: block;
+      }
+    }
+  }
+}

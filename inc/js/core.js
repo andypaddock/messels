@@ -88,7 +88,52 @@ jQuery(document).ready(function($) {
     }
   });
 
-  // GLOBAL OWL CAROUSEL SETTINGS
+	// ============ Carousels
+
+	
+	var owlTestimonials = $('.owl-carousel.testimonial-carousel');
+ owlTestimonials.owlCarousel({
+   loop: true,
+   nav: true,
+   navText: ["<div class='arrow-left icon'></div>", "<div class='arrow-right icon'></div>"],
+   lazyLoad: true,
+   dots: false,
+   autoplay: false,
+   responsive: {
+	 0: {
+	   items: 1
+	 }
+   },
+ });
+
+ $(".owl-next").click(function () {
+   owlTestimonials.trigger('nextPartner.owl.carousel');
+ });
+ $('.owl-prev').click(function () {
+   owlTestimonials.trigger('prevPartner.owl.carousel');
+ });
+
+ $(document).ready(function () {
+
+    $('.gallery').magnificPopup({
+      delegate: 'a.lightbox-gallery',
+      type: 'image',
+      gallery: {
+        enabled: true
+      }
+    });
+  });
+
+
+	$(document).ready(function() {
+		$('.gallery').magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			gallery: {
+				enabled: true,
+			},
+		});
+	});
 
   /* CLASS AND FOCUS ON CLICK */
 
@@ -264,7 +309,37 @@ jQuery(document).ready(function($) {
   });
 
 
- 
+  var acc = document.getElementsByClassName('info-accordion');
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+		acc[i].addEventListener('click', function() {
+			this.classList.toggle('info-active');
+			var panel = this.nextElementSibling;
+			if (panel.style.maxHeight) {
+				panel.style.maxHeight = null;
+				$(this)
+					.next('.info-panel')
+					.css('padding', '0 1rem');
+			} else {
+				panel.style.maxHeight = panel.scrollHeight + '32px';
+				$(this)
+					.next('.info-panel')
+					.css('padding', '2rem 1rem');
+			}
+		});
+	}
+
+  $(document).ready(function () {
+
+    $('.parent').magnificPopup({
+      delegate: 'a.lightbox-gallery',
+      type: 'image',
+      gallery: {
+        enabled: true
+      }
+    });
+  });
 
 
 }); //Don't remove ---- end of jQuery wrapper

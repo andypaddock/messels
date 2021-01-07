@@ -153,7 +153,7 @@
 #menu-toggle {
     width:100px;
   height:100px;
-  margin:50px auto;
+  margin:0 auto;
   position:relative;
   position:relative;
   cursor:pointer;
@@ -335,7 +335,82 @@
 	}
 }
 
+.header {
+    height: 55vh;
+    background-size: cover;
+    background-position: top;
+	position: relative;
+	svg {
+		width: 100%;
+	}
+}
 
+
+
+
+
+
+
+.accordion-outer {
+	grid-column-end: 13;
+  }
+  
+  .info-accordion {
+	background-color: $brand-primary;
+	color: white;
+	cursor: pointer;
+	padding: 0.75rem 1rem;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	transition: 0.4s;
+	margin-bottom: 0.5rem;
+	border-radius: 0.5rem;
+	text-transform: uppercase;
+	display: grid;
+	grid-template-columns: 1fr 10fr 1fr;
+	align-items: center;
+	text-transform: uppercase;
+  
+	.auto-counter {
+	  text-transform: uppercase;
+	  font-weight: 100;
+	}
+  
+	svg {
+	  height: 2rem;
+	  width: 2rem;
+	  justify-self: flex-end;
+  
+	  path {
+		fill: white;
+	  }
+	}
+  }
+  
+  .text-content .info-active {
+	margin-bottom: 0;
+	border-radius: 0.5rem 0.5rem 0 0;
+  
+	svg {
+	  transform: rotate(270deg);
+	}
+  
+  
+  
+  }
+  
+  
+  .info-panel {
+	padding: 0 1rem;
+	background-color: $brand-light-grey;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	margin-bottom: 0.5rem;
+	border-radius: 0 0 0.5rem 0.5rem;
+  }
 
 
 

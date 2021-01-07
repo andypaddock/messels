@@ -8,73 +8,49 @@ get_header();?>
 
 <!--HERO-->
 
-<?php get_template_part("template-parts/hero"); ?>
 
-<!--INTRODUCTION-->
-<?php if( have_rows('introduction') ):
-    while( have_rows('introduction') ): the_row(); ?>
-	<?php get_template_part("template-parts/intro-content"); ?>
-<?php endwhile; endif;?>
+
 
 <!--RESIDENTIAL & HOSTPITALITY BLOCKS -->
 
-	<div class="container">
-		<div class="section section__extranarrow introduction">
-			
-				<div>
+<div class="container">
+    <div id="section-intro" class="section section__extranarrow introduction text-block mt5">
 
-						<div class="overview-block col" style="background-image:url(<?php echo $image['url']; ?>);">
-							<div>
-								<h3><?php the_sub_field('title');?></h3>
-								<a class="button <?php echo esc_attr($colourValue);?>" href="<?php the_sub_field('cta_target');?>"><span><?php the_sub_field('cta_title');?></span></a>
-							</div>
-						</div>
-				</div>
-			
-		</div>
-		<div class="section gallery">
-			
-				<div>
+        <?php the_field('intro_copy');?>
 
-						<div class="overview-block col" style="background-image:url(<?php echo $image['url']; ?>);">
-							<div>
-								<h3><?php the_sub_field('title');?></h3>
-								<a class="button <?php echo esc_attr($colourValue);?>" href="<?php the_sub_field('cta_target');?>"><span><?php the_sub_field('cta_title');?></span></a>
-							</div>
-						</div>
-				</div>
-			
-		</div>
-		<div class="section section__narrow faq">
-			
-				<div>
+    </div>
+    <div id="gallery" class="section gallery mt5">
+        <h1 class="heading-primary">Gallery</h1>
 
-						<div class="overview-block col" style="background-image:url(<?php echo $image['url']; ?>);">
-							<div>
-								<h3><?php the_sub_field('title');?></h3>
-								<a class="button <?php echo esc_attr($colourValue);?>" href="<?php the_sub_field('cta_target');?>"><span><?php the_sub_field('cta_title');?></span></a>
-							</div>
-						</div>
-				</div>
-			
-		</div>
-		<div class="section section__narrow testimonials">
+        <?php get_template_part('template-parts/fixed-gallery');?>
+    </div>
 
-		<?php get_template_part('template-parts/testimonial');?>
+
+    <?php get_template_part('template-parts/directory');?>
+
+    <div id="testimonials" class="section section__narrow testimonials mt5">
+        <h1 class="heading-primary">Testimonials</h1>
+
+        <?php get_template_part('template-parts/testimonial');?>
+    </div>
+
+    <div id="faq" class="section section__narrow faq mt3">
+        <h1 class="heading-primary">FAQ</h1>
+
+        <?php get_template_part('template-parts/accordian');?>
+
+    </div>
+    <div id="contact-form" class="section section__narrow contact mt5 mb5">
+        <h1 class="heading-primary">Contact</h1>
+        <div class="form-section">
+
+            <h2 class="heading heading__7 mb1"><?php the_sub_field('heading');?></h2>
+            <p class="mb1"><?php the_sub_field('copy');?></p>
+            <?php echo do_shortcode('[contact-form-7 id="88" title="Contact Form"]');?>
+
+        </div>
+
+    </div>
+
 </div>
-		<div class="section section__narrow contact">
-			
-				<div>
-
-						<div class="overview-block col" style="background-image:url(<?php echo $image['url']; ?>);">
-							<div>
-								<h3><?php the_sub_field('title');?></h3>
-								<a class="button <?php echo esc_attr($colourValue);?>" href="<?php the_sub_field('cta_target');?>"><span><?php the_sub_field('cta_title');?></span></a>
-							</div>
-						</div>
-				</div>
-			
-		</div>
-		
-	</div>
 <?php get_footer();?>
