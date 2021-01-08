@@ -28,7 +28,7 @@ get_header();?>
 
     <?php get_template_part('template-parts/directory');?>
 
-    <div id="testimonials" class="section section__narrow testimonials mt5">
+    <div id="testimonials" class="section section__extranarrow testimonials mt5">
         <h1 class="heading-primary">Testimonials</h1>
 
         <?php get_template_part('template-parts/testimonial');?>
@@ -42,6 +42,10 @@ get_header();?>
     </div>
     <div id="contact-form" class="section section__narrow contact mt5 mb5">
         <h1 class="heading-primary">Contact</h1>
+        <div class="contact-details">
+            <div class="phone"></div>
+            <div class="email"></div>
+        </div>
         <div class="form-section">
 
             <h2 class="heading heading__7 mb1"><?php the_sub_field('heading');?></h2>
@@ -52,5 +56,8 @@ get_header();?>
 
     </div>
 
+</div>
+<div id="location" class="mt5">
+    <?php get_template_part('template-parts/map');?>
 </div>
 <?php get_footer();?>

@@ -11,14 +11,14 @@
 
     <div class="container">
         <div class="section section__extranarrow footer-contact">
-            <h2 class="light-text">Contact Us</h2>
-            <p>Phone: <a
+            <h4 class="light-text">Contact Us</h4>
+            <p class="light-text"><a
                     href="tel:<?php the_field('phone_number', 'options');?>"><?php the_field('phone_number', 'options');?></a>
             </p>
             <p>www.theridgewaybarns.co.uk
             </p>
 
-            <?php get_template_part("template-parts/social");?>
+            <?php get_template_part("template-parts/socials");?>
 
 
         </div>

@@ -4,7 +4,7 @@ $fileLink = get_field('file_link', 'options');
 ?>
 
 
-<div class="section mt5" style="background-image: url(<?php echo $directoryImage;?>">
+<div class="section directory mt5" style="background-image: url(<?php echo $directoryImage;?>">
     <h2 class="light-text"><?php the_field('directory_title','options');?></h2>
     <p class="light-text"><?php the_field('directory_desc','options');?></p>
 
@@ -12,6 +12,6 @@ $fileLink = get_field('file_link', 'options');
     <a href="<?php echo $fileLink['url'];?>">
         <img src="<?php echo $linkImage['url']; ?>" alt="<?php echo $linkImage['alt'] ?>" />
     </a>
-    <p class="light-text"><?php echo $fileLink['type'];?></p>
+    <p class="light-text file-type"><?php echo $fileLink['type'];?></p>
     <p class="light-text sub-text">(Opens in a new window)</p>
 </div>

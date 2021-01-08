@@ -145,3 +145,10 @@ add_filter('wp_calculate_image_sizes', 'aw_custom_responsive_image_sizes', 10 , 
 add_filter('manage_edit-category_columns','manage_my_category_columns');
 
 show_admin_bar(false);
+
+
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyAww1oT-GyrFh_DTnnBF6LwtUBkEVunVlU';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
