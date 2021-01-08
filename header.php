@@ -57,33 +57,22 @@
                 </div>
             </div>
         </section>
-        <?php get_template_part("template-parts/hero"); ?>
-        <section class="hero-text">
-            <div class="container">
-                <div class="section section__extranarrow">
-                    <div class="header__text-box">
-                        <h1 class="heading-primary">
-                            <span class="heading-primary--main">An exciting new events venue set in the rolling
-                                Wiltshire countryside</span>
-                        </h1>
-
-                        <a href="#section-intro">Find Out More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
-    <!-- Mobile Menu Overlay -->
-    <div id="mobileNav" class="overlay">
-        <!-- Overlay content -->
-        <div class="overlay-content">
-            <?wp_nav_menu( array( 
+        <div id="mobileNav" class="overlay">
+            <!-- Overlay content -->
+            <div class="overlay-content">
+                <?wp_nav_menu( array( 
 						'theme_location' => 'mobile-menu'
 					) ); ?>
 
-            <div class="overlay-button"><a href="/#contact-form">Contact</a></div>
+                <div class="overlay-button"><a href="/#contact-form">Contact</a></div>
+            </div>
         </div>
-    </div>
+        <?php if (is_page_template('page-templates/home.php')) { 
+             get_template_part("template-parts/hero"); 
+        } else  ?>
+    </header>
+    <!-- Mobile Menu Overlay -->
+
 
 
     <main>

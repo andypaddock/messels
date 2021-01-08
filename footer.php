@@ -30,7 +30,7 @@
         <div class="section section__extranarrow mandatory">
             <p>© The Ridgeway Barns <?php echo date('Y');?> All Rights Reserved
                 <span class="no-wrap">
-                    <a href="/privacy-policy/">Privacy policy</a>
+                    <a href="/privacy-policy/">Privacy policy</a> |
                     <a href="/terms-conditions/">Terms & Conditions</a>
                 </span>
             </p>

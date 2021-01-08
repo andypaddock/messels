@@ -18,6 +18,28 @@
     }
     img {
       padding: 2rem 0;
+      height: 9rem;
     }
+  }
+}
+.contact-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  .phone,
+  .email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    i {
+      color: $color-secondary-light;
+      padding-bottom: 1rem;
+    }
+  }
+  .phone-detail {
+    border-right: 1px solid black;
+    width: 100%;
+    text-align: center;
   }
 }

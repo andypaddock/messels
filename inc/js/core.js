@@ -15,6 +15,10 @@ jQuery(document).ready(function($) {
       $(this).toggleClass('open');
       $('.overlay').toggleClass('open');
     })
+    $('.menu-item').click(function(){
+      $('.overlay').removeClass('open');
+      $('#menu-toggle').removeClass('open');
+    })
 
   //Smooth Scroll
 
@@ -325,7 +329,7 @@ jQuery(document).ready(function($) {
 				panel.style.maxHeight = panel.scrollHeight + '32px';
 				$(this)
 					.next('.info-panel')
-					.css('padding', '2rem 1rem');
+					.css('padding', '2rem 3rem');
 			}
 		});
 	}

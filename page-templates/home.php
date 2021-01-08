@@ -6,12 +6,7 @@
  */
 get_header();?>
 
-<!--HERO-->
 
-
-
-
-<!--RESIDENTIAL & HOSTPITALITY BLOCKS -->
 
 <div class="container">
     <div id="section-intro" class="section section__extranarrow introduction text-block mt5">
@@ -43,8 +38,18 @@ get_header();?>
     <div id="contact-form" class="section section__narrow contact mt5 mb5">
         <h1 class="heading-primary">Contact</h1>
         <div class="contact-details">
-            <div class="phone"></div>
-            <div class="email"></div>
+            <div class="phone">
+                <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="phone-detail"><a
+                        href="tel:<?php the_field('phone_number', 'options');?>"><?php the_field('phone_number', 'options');?></a>
+                </div>
+            </div>
+            <div class="email">
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div class="email-detail"><a
+                        href="mailto:<?php the_field('email_general', 'options');?>"><?php the_field('email_general', 'options');?></a>
+                </div>
+            </div>
         </div>
         <div class="form-section">
 

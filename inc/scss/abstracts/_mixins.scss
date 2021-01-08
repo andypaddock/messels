@@ -98,3 +98,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   left: 50%;
   transform: translate(-50%, -50%);
 }
+@mixin harshBlur {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+}

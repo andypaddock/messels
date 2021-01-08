@@ -6,21 +6,17 @@
  */
 get_header();?>
 
-<!-- ******************* Hero Content ******************* -->
-
-<?php get_template_part("template-parts/hero"); ?>
-
-<!-- ******************* Hero Content END ******************* -->
-
 <div class="container">
-	
-	<h1 class="heading heading__lg slow-fade mt2"><?php the_field("hero_heading"); ?></h1>
-	
-	<div class="wrapper-content">
-		
-		<div class="copy"><?php the_field("content"); ?></div>
-	
-	</div>
+    <div class="section section__narrow">
+
+        <h1 class="heading heading__lg slow-fade mt2"><?php the_field("page_heading"); ?></h1>
+    </div>
+    <div class="section section__narrow legal-block">
+
+
+        <?php the_field("main_body_text"); ?>
+
+    </div>
 
 </div>
 
