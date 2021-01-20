@@ -27,7 +27,7 @@
 
 
     <div class="container">
-        <div class="section section__extranarrow mandatory">
+        <div class="section section__narrow mandatory">
             <p>© The Ridgeway Barns <?php echo date('Y');?> All Rights Reserved
                 <span class="no-wrap">
                     <a href="/privacy-policy/">Privacy policy</a> |
@@ -38,6 +38,15 @@
     </div>
 
 </footer>
+<div class="silverless">
+    <div class="container">
+        <div class="section section__extranarrow createdby"><a href="https://silverless.co.uk">
+
+                <?php get_template_part('inc/img/silverless', 'logo');?>
+
+            </a></div>
+    </div>
+</div>
 
 </div><!-- #page -->
 <?php wp_footer(); ?>

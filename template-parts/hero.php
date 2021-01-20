@@ -33,7 +33,7 @@ $heroVideo = get_field('hero_video', 'options');
             <div class="header__text-box">
                 <h1 class="heading-primary">
                     <span class="heading-primary--main">An exciting new events venue set in the rolling
-                        Wiltshire countryside</span><?php the_field('hero_type_select', 'options');?>
+                        Wiltshire countryside</span>
                 </h1>
 
                 <a href="#section-intro">Find Out More</a>

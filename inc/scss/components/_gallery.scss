@@ -148,3 +148,9 @@
     @include backgroundCover;
   }
 }
+.video {
+  margin: 0.5rem 0;
+  video {
+    width: 100%;
+  }
+}

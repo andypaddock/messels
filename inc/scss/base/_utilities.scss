@@ -702,6 +702,7 @@ img.mfp-img {
     margin-bottom: 2rem;
     font-weight: 400;
     font-style: italic;
+    font-size: $default-font-size;
   }
 
   cite {
@@ -900,5 +901,5 @@ img.mfp-img {
   }
 }
 #map-location {
-  height: 40vh;
+  height: 50vh;
 }

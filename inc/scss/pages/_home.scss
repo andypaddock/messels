@@ -21,17 +21,27 @@
       height: 9rem;
     }
   }
+  &.contact {
+    margin-bottom: 5rem;
+  }
 }
 .contact-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-evenly;
-  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+
   .phone,
   .email {
     display: flex;
     flex-direction: column;
     align-items: center;
+    a {
+      font-size: 1.4rem;
+    }
     i {
       color: $color-secondary-light;
       padding-bottom: 1rem;
@@ -41,5 +51,8 @@
     border-right: 1px solid black;
     width: 100%;
     text-align: center;
+    @include respond(phone) {
+      border-right: none;
+    }
   }
 }

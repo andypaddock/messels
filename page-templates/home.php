@@ -9,12 +9,12 @@ get_header();?>
 
 
 <div class="container">
-    <div id="section-intro" class="section section__extranarrow introduction text-block mt5">
+    <div id="section-intro" class="section section__extranarrow introduction paragraph text-block">
 
         <?php the_field('intro_copy');?>
 
     </div>
-    <div id="gallery" class="section gallery mt5">
+    <div id="gallery" class="section gallery">
         <h1 class="heading-primary">Gallery</h1>
 
         <?php get_template_part('template-parts/fixed-gallery');?>
@@ -23,19 +23,19 @@ get_header();?>
 
     <?php get_template_part('template-parts/directory');?>
 
-    <div id="testimonials" class="section section__extranarrow testimonials mt5">
+    <div id="testimonials" class="section section__extranarrow testimonials">
         <h1 class="heading-primary">Testimonials</h1>
 
         <?php get_template_part('template-parts/testimonial');?>
     </div>
 
-    <div id="faq" class="section section__narrow faq mt3">
+    <div id="faq" class="section section__narrow faq">
         <h1 class="heading-primary">FAQ</h1>
 
         <?php get_template_part('template-parts/accordian');?>
 
     </div>
-    <div id="contact-form" class="section section__narrow contact mt5 mb5">
+    <div id="contact-form" class="section section__narrow contact">
         <h1 class="heading-primary">Contact</h1>
         <div class="contact-details">
             <div class="phone">
@@ -62,7 +62,7 @@ get_header();?>
     </div>
 
 </div>
-<div id="location" class="mt5">
+<div id="location">
     <?php get_template_part('template-parts/map');?>
 </div>
 <?php get_footer();?>
