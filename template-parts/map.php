@@ -10,8 +10,10 @@ var map = new mapboxgl.Map({
         <?php echo esc_attr($location['lat']); ?>
     ],
     zoom: 11,
-    interactive: false,
+    maxZoom: 17,
+    minZoom: 6,
 });
+map.addControl(new mapboxgl.NavigationControl());
 // add marker to map
 new mapboxgl.Marker()
     .setLngLat([<?php echo esc_attr($location['lng']); ?>, <?php echo esc_attr($location['lat']); ?>])

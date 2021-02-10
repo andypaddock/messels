@@ -1,6 +1,7 @@
 header {
   display: flex;
   flex-direction: column;
+  margin: 0 1rem;
   #bgvideo {
     position: absolute;
     bottom: 0;
@@ -45,5 +46,5 @@ header {
   }
 }
 header {
-  height: 100vh;
+  height: calc(100vh - 4.5rem);
 }

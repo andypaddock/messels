@@ -5,7 +5,7 @@ $fileLink = get_field('file_link', 'options');
 
 
 <div id="directory" class="section directory mt5" style="background-image: url(<?php echo $directoryImage;?>">
-    <h2 class="light-text"><?php the_field('directory_title','options');?></h2>
+    <h2 class="heading-secondary light-text"><?php the_field('directory_title','options');?></h2>
     <p class="light-text"><?php the_field('directory_desc','options');?></p>
 
 

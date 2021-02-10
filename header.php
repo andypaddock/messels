@@ -24,7 +24,7 @@
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" type="image/x-icon" />
+
 
     <?php wp_head(); ?>
 
@@ -32,31 +32,31 @@
 
 <body <?php body_class(); ?>>
 
-
-    <header>
-        <section class="navigation">
-            <div class="container">
-                <div id="menu-toggle">
-                    <div id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div id="cross">
-                        <span></span>
-                        <span></span>
-                    </div>
+    <section class="navigation">
+        <div class="container">
+            <div id="menu-toggle">
+                <div id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="nav">
-                    <?wp_nav_menu( array( 
-						'theme_location' => 'main-menu'
-					) ); ?>
-                </div>
-                <div class="contact-button">
-                    <a href="/#contact-form">Contact</a>
+                <div id="cross">
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-        </section>
+            <div class="nav">
+                <?wp_nav_menu( array( 
+						'theme_location' => 'main-menu'
+					) ); ?>
+            </div>
+            <div class="contact-button">
+                <a href="#contact-form">Contact</a>
+            </div>
+        </div>
+    </section>
+    <header>
+
         <div id="mobileNav" class="overlay">
             <!-- Overlay content -->
             <div class="overlay-content">
@@ -64,7 +64,7 @@
 						'theme_location' => 'mobile-menu'
 					) ); ?>
 
-                <div class="overlay-button"><a href="/#contact-form">Contact</a></div>
+                <div class="overlay-button"><a href="#contact-form">Contact</a></div>
             </div>
         </div>
         <?php if (is_page_template('page-templates/home.php')) { 
