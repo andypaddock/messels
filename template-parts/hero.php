@@ -35,8 +35,7 @@ $heroVideo = get_field('hero_video', 'options');
                     <span class="heading-primary--main">An exciting new events venue set in the rolling
                         Wiltshire countryside</span>
                 </h1>
-
-                <a href="#section-intro">Find Out More</a>
+                <a href="#section-intro" class="more">Find Out More</a>
             </div>
         </div>
     </div>

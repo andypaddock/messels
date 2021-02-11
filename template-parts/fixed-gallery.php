@@ -25,7 +25,7 @@ if( $images && $counter < $galleryCount) : ?>
             $counter++; ?>
     <?php if( $counter <= $galleryCount) : ?>
     <?php $caption = $image['caption'];?>
-    <div class="div<?php echo ($counter); ?> slow-fade gallery-images"><a href="<?php echo $image['url']; ?>"
+    <div class="div<?php echo ($counter); ?> slide-up gallery-images"><a href="<?php echo $image['url']; ?>"
             class="lightbox-gallery"><img src="<?php echo esc_url($image['sizes']['large']); ?>"
                 alt="<?php echo $image['alt']; ?>" /></a>
     </div>

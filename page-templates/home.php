@@ -6,8 +6,6 @@
  */
 get_header();?>
 
-
-
 <div class="container">
     <div id="section-intro" class="section section__extranarrow introduction paragraph text-block">
 
@@ -24,19 +22,19 @@ get_header();?>
     <?php get_template_part('template-parts/directory');?>
 
     <div id="testimonials" class="section section__extranarrow testimonials">
-        <h1 class="heading-primary">Testimonials</h1>
+        <h1 class="heading-primary slide-up">Testimonials</h1>
 
         <?php get_template_part('template-parts/testimonial');?>
     </div>
 
     <div id="faq" class="section section__narrow faq">
-        <h1 class="heading-primary">FAQ</h1>
+        <h1 class="heading-primary slide-up">FAQ</h1>
 
         <?php get_template_part('template-parts/accordian');?>
 
     </div>
     <div id="contact-form" class="section section__narrow contact">
-        <h1 class="heading-primary">Contact</h1>
+        <h1 class="heading-primary slide-up">Contact</h1>
         <div class="contact-details">
             <div class="phone">
                 <div class="icon"><i class="fas fa-phone-alt"></i></div>

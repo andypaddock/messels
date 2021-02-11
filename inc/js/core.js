@@ -22,18 +22,19 @@ jQuery(document).ready(function($) {
 
   //Smooth Scroll
 
-  $("nav a, a.button, a.next-section, a.explore").click(function() {
-    if ($(this).attr("href") != "#") {
-      $("html, body").animate(
-        {
-          scrollTop: $($(this).attr("href")).offset().top - 100
-        },
-        500
-      );
-      return false;
-    }
+$(".menu-item a, a.more").on('click', function(e) {
+  if (this.hash !== "") {
+    e.preventDefault();
+    var hash = this.hash;
+    var desiredHeight = $('.navigation').height() + 40;
+    $('html').animate({
+    scrollTop: $(hash).offset().top - desiredHeight
+    }, 300, function(){
+    //
+    });
+  }
   });
-
+ 
   /* ADD CLASS ON SCROLL*/
 
   $(window).scroll(function() {
@@ -93,8 +94,7 @@ jQuery(document).ready(function($) {
   });
 
 	// ============ Carousels
-
-	
+ 
 	var owlTestimonials = $('.owl-carousel.testimonial-carousel');
  owlTestimonials.owlCarousel({
    loop: true,
@@ -128,7 +128,6 @@ jQuery(document).ready(function($) {
     });
   });
 
-
 	$(document).ready(function() {
 		$('.gallery').magnificPopup({
 			delegate: 'a',
@@ -140,6 +139,15 @@ jQuery(document).ready(function($) {
 	});
 
   /* CLASS AND FOCUS ON CLICK */
+  $(".menu-item a").click(function() {
+   // $(".menu-item a.active").removeClass("active");
+    $(this).addClass('active');
+  });
+  
+  $(document).on('click', '.menu-item a', function() {
+      $(".menu-item a.active").removeClass("active");
+      $(this).addClass('active');
+  });
 
   $(".menu-trigger").click(function() {
     $(".menu-collapse").toggleClass("visible");
@@ -162,54 +170,6 @@ jQuery(document).ready(function($) {
     $(this)
       .closest(".camp-summary__item")
       .toggleClass("open");
-  });
-
-  // ========== Add class if in viewport on page load
-
-  $.fn.isOnScreen = function() {
-    var win = $(window);
-
-    var viewport = {
-      top: win.scrollTop(),
-      left: win.scrollLeft()
-    };
-    viewport.right = viewport.left + win.width();
-    viewport.bottom = viewport.top + win.height();
-
-    var bounds = this.offset();
-    bounds.right = bounds.left + this.outerWidth();
-    bounds.bottom = bounds.top + this.outerHeight();
-
-    return !(
-      viewport.right < bounds.left ||
-      viewport.left > bounds.right ||
-      viewport.bottom < bounds.top ||
-      viewport.top > bounds.bottom
-    );
-  };
-
-  $(".slide-up, .slide-down, .slide-right, .slow-fade").each(function() {
-    if ($(this).isOnScreen()) {
-      $(this).addClass("active");
-    }
-  });
-
-  // ========== Add class on entering viewport
-
-  $.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom > viewportTop && elementTop < viewportBottom;
-  };
-
-  $(window).on("resize scroll", function() {
-    $(".slide-up, .slide-down, .slide-right, .slow-fade").each(function() {
-      if ($(this).isInViewport()) {
-        $(this).addClass("active");
-      }
-    });
   });
 
   // ========== Tab Slider
@@ -344,6 +304,54 @@ jQuery(document).ready(function($) {
       }
     });
   });
+
+// ========== Add class if in viewport on page load
+
+$.fn.isOnScreen = function () {
+  var win = $(window);
+
+  var viewport = {
+    top: win.scrollTop(),
+    left: win.scrollLeft()
+  };
+  viewport.right = viewport.left + win.width();
+  viewport.bottom = viewport.top + win.height();
+
+  var bounds = this.offset();
+  bounds.right = bounds.left + this.outerWidth();
+  bounds.bottom = bounds.top + this.outerHeight();
+
+  return !(
+    viewport.right < bounds.left ||
+    viewport.left > bounds.right ||
+    viewport.bottom < bounds.top ||
+    viewport.top > bounds.bottom
+  );
+};
+
+$(".slide-up, .slide-down, .slide-right, .slow-fade").each(function () {
+  if ($(this).isOnScreen()) {
+    $(this).addClass("active");
+  }
+});
+
+// ========== Add class on entering viewport
+
+$.fn.isInViewport = function () {
+  var elementTop = $(this).offset().top;
+  var elementBottom = elementTop + $(this).outerHeight();
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+  return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
+$(window).on("resize scroll", function () {
+  $(".slide-up, .slide-down, .slide-right, .slow-fade").each(function () {
+    if ($(this).isInViewport()) {
+      $(this).addClass("active");
+    }
+  });
+});
 
 
 }); //Don't remove ---- end of jQuery wrapper

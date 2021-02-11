@@ -31,13 +31,14 @@
 
   .wpcf7-submit {
     margin-top: 1em;
-    font-weight: 700;
     width: 100%;
     background: $color-primary-dark;
     color: white;
     text-transform: uppercase;
     padding: 1.2rem;
     border: none;
+    font-family: "Lato", sans-serif;
+    letter-spacing: .2rem;
   }
 
   br {

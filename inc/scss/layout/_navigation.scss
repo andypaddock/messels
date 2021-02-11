@@ -27,6 +27,8 @@
   grid-column: span 6;
   @include respond(tab-port) {
     display: block;
+    height: 5rem;
+    width: 100%;
   }
 
   .mobile-menu {
@@ -68,6 +70,18 @@
 
       &:nth-child(3) {
         transition-delay: 0.75s;
+      }
+    }
+    @include respond(tab-port) {
+      width:auto;
+      height: auto;
+      span {
+        width: 5rem;
+        height: 2px;
+        position: relative;
+        top: 0px;
+        left: 0;
+        margin: 7px 0;
       }
     }
   }
@@ -147,14 +161,16 @@
   position: fixed;
   z-index: -1;
   left: 0;
-  top: 12rem;
   transition: 0.5s;
   height: 100vh;
   @include harshBlur;
 
   &.open {
-    max-height: 80vh;
-    z-index: 99;
+    max-height: 100vh;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
     .overlay-content {
       opacity: 1;
       transition: 0.5s;
@@ -165,7 +181,6 @@
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
-  top: 15%;
   width: 100%;
   text-align: center;
   display: flex;
@@ -180,7 +195,7 @@
   transition: 0.3s;
   line-height: 1.4em;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 
 .overlay a:hover,
@@ -229,12 +244,30 @@
     transition: all 1s ease-in-out;
     li {
       width: 100%;
+      padding: 0 2rem;
       text-align: center;
       a {
+        position: relative;
         text-transform: uppercase;
         font-weight: 400;
         letter-spacing: 0.1rem;
         display: block;
+        &:after {
+          content:'';
+          position: absolute;
+          bottom: -.5rem;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: $color-primary-light;
+          transform:scaleX(0);
+          transition: transform .3s ease;
+        }
+        &.active {
+          &:after {
+            transform:scaleX(1);
+          }
+        }
       }
     }
   }

@@ -3,7 +3,7 @@
                 <div class="owl-carousel testimonial-carousel">
 
                     <?php if( have_rows('testimonial', 'options') ):
-					while( have_rows('testimonial', 'options') ): the_row();?>
+		while( have_rows('testimonial', 'options') ): the_row();?>
 
                     <div class="quote">
                         <?php get_template_part("inc/img/quote"); ?>
