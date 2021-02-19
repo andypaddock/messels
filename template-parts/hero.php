@@ -5,6 +5,7 @@ $heroVideo = get_field('hero_video', 'options');
 ?>
 
 <?php if($heroType == 'image'):?>
+<div class="hero-wrapper">
 <section class="header" style="background-image: url(<?php echo $heroImage;?>">
     <div class="container header__logo-box">
         <div class="section section__narrow">
@@ -25,8 +26,6 @@ $heroVideo = get_field('hero_video', 'options');
 </section>
 <?php endif; ?>
 
-
-
 <section class="hero-text">
     <div class="container">
         <div class="section section__extranarrow">
@@ -40,3 +39,4 @@ $heroVideo = get_field('hero_video', 'options');
         </div>
     </div>
 </section>
+</div>

@@ -22,11 +22,13 @@ jQuery(document).ready(function($) {
 
   //Smooth Scroll
 
+let desiredHeight = $('.navigation').height() + 40;
+
 $(".menu-item a, a.more").on('click', function(e) {
   if (this.hash !== "") {
     e.preventDefault();
     var hash = this.hash;
-    var desiredHeight = $('.navigation').height() + 40;
+    
     $('html').animate({
     scrollTop: $(hash).offset().top - desiredHeight
     }, 300, function(){
@@ -34,6 +36,28 @@ $(".menu-item a, a.more").on('click', function(e) {
     });
   }
   });
+
+let mainNavLinks = document.querySelectorAll(".menu-item a");
+let mainSections = document.querySelectorAll(".nav-section");
+
+let lastId;
+let cur = [];
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach(link => {
+    let section = document.querySelector(link.hash);
+
+    if (
+      section.offsetTop - 100 <= fromTop && section.offsetTop + section.offsetHeight - 100 > fromTop
+    ) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+});
  
   /* ADD CLASS ON SCROLL*/
 
@@ -354,4 +378,12 @@ $(window).on("resize scroll", function () {
 });
 
 
+
+
+
 }); //Don't remove ---- end of jQuery wrapper
+
+
+
+
+

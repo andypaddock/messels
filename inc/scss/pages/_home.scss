@@ -1,9 +1,21 @@
 .section {
   &.directory {
+    position: relative;
     background-size: cover;
     background-position: center center;
     text-align: center;
     padding: 3rem;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity:0.3;
+      z-index: -1;
+    }
     a {
       display: block;
       width: 100%;
@@ -21,6 +33,7 @@
     img {
       padding: 2rem 0;
       height: 9rem;
+      filter: brightness(5);
     }
     p {
       font-size: 1.7rem;
@@ -61,4 +74,9 @@
       border-right: none;
     }
   }
+}
+
+.mapboxgl-ctrl-bottom-left,
+.mapboxgl-ctrl-bottom-right {
+  display: none;
 }

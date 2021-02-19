@@ -7,12 +7,12 @@
 get_header();?>
 
 <div class="container">
-    <div id="section-intro" class="section section__extranarrow introduction paragraph text-block">
+    <div id="section-intro" class="nav-section section section__extranarrow introduction paragraph text-block">
 
         <?php the_field('intro_copy');?>
 
     </div>
-    <div id="gallery" class="section gallery">
+    <div id="gallery" class="nav-section section gallery">
         <h1 class="heading-primary">Gallery</h1>
 
         <?php get_template_part('template-parts/fixed-gallery');?>
@@ -21,19 +21,19 @@ get_header();?>
 
     <?php get_template_part('template-parts/directory');?>
 
-    <div id="testimonials" class="section section__extranarrow testimonials">
+    <div id="testimonials" class="nav-section section section__extranarrow testimonials">
         <h1 class="heading-primary slide-up">Testimonials</h1>
 
         <?php get_template_part('template-parts/testimonial');?>
     </div>
 
-    <div id="faq" class="section section__narrow faq">
+    <div id="faq" class="nav-section section section__narrow faq">
         <h1 class="heading-primary slide-up">FAQ</h1>
 
         <?php get_template_part('template-parts/accordian');?>
 
     </div>
-    <div id="contact-form" class="section section__narrow contact">
+    <div id="contact-form" class="nav-section section section__narrow contact">
         <h1 class="heading-primary slide-up">Contact</h1>
         <div class="contact-details">
             <div class="phone">
@@ -60,7 +60,8 @@ get_header();?>
     </div>
 
 </div>
-<div id="location">
+<div id="location" class="nav-section">
     <?php get_template_part('template-parts/map');?>
 </div>
+
 <?php get_footer();?>

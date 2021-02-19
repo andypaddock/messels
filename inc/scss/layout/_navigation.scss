@@ -12,13 +12,16 @@
   .container {
     height: 4.5rem;
     transition: all 1s ease-in-out;
+    @include respond(tab-port) {
+      height: 5rem;
+    }
   }
 }
 #menu-toggle {
   display: none;
   width: 100px;
   height: 100px;
-  margin: 0 auto;
+  margin: 0 auto 0 1rem;
   position: relative;
   position: relative;
   cursor: pointer;
@@ -51,7 +54,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-
+    top: .25rem;
     span {
       width: 60px;
       height: 4px;
@@ -278,6 +281,9 @@
     opacity: 0.95;
     .container {
       height: 6rem;
+      @include respond(tab-port) {
+        height: 5rem;
+      }
     }
     .nav ul {
       padding-top: 2rem;
@@ -285,5 +291,41 @@
   }
   .contact-button {
     margin-bottom: 0;
+  }
+}
+#close-menu {
+  position: relative;
+  display: inline-block;
+  width:5rem;
+  height: 5rem;
+  text-transform: uppercase;
+  transform:rotate(45deg);
+  &:before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    width: 0;
+    height: 2px;
+    background: $color-primary;
+    transition: all .3s ease;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 2px);
+    width: 2px;
+    height: 0;
+    background: $color-primary;
+    transition: all .3s .3s ease;
+  }
+}
+.open {
+  #close-menu {
+    &:before {
+      width: 100%;
+    }
+    &:after {
+      height: 100%;
+    }
   }
 }

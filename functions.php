@@ -42,7 +42,16 @@ add_action('wp_before_admin_bar_render', 'ridgeway_manage_admin_bar');
 function ridgeway_scripts() {
 	wp_enqueue_style( 'ridgeway-style', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);
 	wp_enqueue_script( 'ridgeway-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true);
+	wp_enqueue_script( 'ridgeway-intersection-js', get_template_directory_uri() . '/inc/js/intersection.js', array('jquery'), false, true);
 }
+
+add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+
+	if ( 'ridgeway-intersection-js' !== $handle )
+		return $tag;
+
+	return str_replace( ' src', ' defer="defer" src', $tag );
+}, 10, 2 );
 
 function ridgeway_custom_menu() {
 	register_nav_menus(array(

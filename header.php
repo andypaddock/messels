@@ -40,10 +40,11 @@
                     <span></span>
                     <span></span>
                 </div>
-                <div id="cross">
+                <!-- <div id="cross">
                     <span></span>
                     <span></span>
-                </div>
+                </div> -->
+                <div id="close-menu"></div>
             </div>
             <div class="nav">
                 <?wp_nav_menu( array( 
@@ -67,13 +68,20 @@
                 <div class="overlay-button"><a href="#contact-form">Contact</a></div>
             </div>
         </div>
+    </header><!-- Mobile Menu Overlay -->
+    <main><!--closes in footer.php-->
+        <div class="contact-box">
+            <?php get_template_part("template-parts/socials");?>    
+            <a
+            href="tel:<?php the_field('phone_number', 'options');?>" class="call-us"><i class="fas fa-phone"></i><span>Click to call us on <?php the_field('phone_number', 'options');?></span></a>             
+        </div>
+        
         <?php if (is_page_template('page-templates/home.php')) { 
              get_template_part("template-parts/hero"); 
         } else  ?>
-    </header>
-    <!-- Mobile Menu Overlay -->
+    
+    
 
 
 
-    <main>
-        <!--closes in footer.php-->
+   
