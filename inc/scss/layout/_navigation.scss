@@ -397,11 +397,12 @@
 }
 .contact-button {
   background: $color-primary-dark;
+  width: 12rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   grid-column: 11/13;
-  margin-bottom: -3.6rem;
+  margin-bottom: -4.2rem;
   margin-top: -10rem;
   z-index: 1;
   transition: all 1s ease-in-out;
@@ -409,7 +410,8 @@
     grid-column: span 6;
     margin-bottom: 0;
   }
-  .sign-in {
+  .sign-in,
+  .sign-out {
     background: $color-primary;
     text-align: center;
     padding: 1rem;
@@ -419,9 +421,22 @@
       color: $color-white;
     }
   }
+  .sign-out {
+    display: none;
+  }
   a {
     color: $color-primary;
     text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 1.4rem;
+    text-decoration: none;
+  }
+  .logged-in .sign-in {
+    display: none;
+  }
+  .logged-in .sign-out {
+    display: block;
   }
 }
 
@@ -542,6 +557,7 @@
   }
 }
 #main-menu-toggle {
+  display: none;
   width: 100px;
   height: 100px;
   margin: 0 auto 0 1rem;
@@ -579,11 +595,11 @@
     width: 100%;
     top: 0.25rem;
     span {
-      width: 60px;
+      width: 40px;
       height: 4px;
       position: relative;
       top: 24px;
-      left: 20px;
+      left: 24px;
       margin: 10px 0;
 
       &:nth-child(1) {
@@ -596,7 +612,7 @@
 
       &:nth-child(3) {
         transition-delay: 0.75s;
-        width: 2.5rem;
+        width: 20px;
       }
     }
     @include respond(tab-port) {
@@ -639,4 +655,7 @@
       }
     }
   }
+}
+.scrolled #main-menu-toggle {
+  display: block;
 }

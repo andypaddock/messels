@@ -46,7 +46,7 @@
 					) ); ?>
                     </div>
                     <div class="contact-button">
-                        <a href="#contact-form">Contact</a>
+                        <a href="/contact">Contact</a>
                         <div id="main-menu-toggle">
                             <div id="hamburger">
                                 <span></span>
@@ -54,8 +54,8 @@
                                 <span></span>
                             </div>
                         </div>
-                        <div class="sign-in"><a href="#contact-form">Sign In</a></div>
-                        <div class="sign-out"><a href="#contact-form">Sign Out</a></div>
+                        <div class="sign-in"><a href="/wp-login.php">Sign In</a></div>
+                        <div class="sign-out"><a href="/wp-login.php?action=logout">Sign Out</a></div>
                     </div>
 
                 </div>
