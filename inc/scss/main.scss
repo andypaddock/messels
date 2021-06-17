@@ -3,9 +3,9 @@ Handles import of all Sass and partials, outputting as style.css
 */
 
 /*!
-Theme Name: ridgeway Master Theme
-Author: ridgeway
-Author URI: http://ridgewaybarns.co.uk/
+Theme Name: Messels
+Author: Silverless AP
+Author URI: http://silverless.co.uk/
 Version: 1.0
 */
 
@@ -16,11 +16,16 @@ Version: 1.0
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";
+@import "base/animations";
 
 @import "components/bg-video";
-@import "components/gallery";
+@import "components/button";
+@import "components/tabs";
+@import "components/composition";
 @import "components/form";
-@import "components/accordion";
+@import "components/hero";
+@import "components/feature-box";
+@import "components/research-box";
 
 @import "layout/footer";
 @import "layout/grid";
@@ -28,4 +33,3 @@ Version: 1.0
 @import "layout/navigation";
 
 @import "pages/home";
-@import "pages/holding";

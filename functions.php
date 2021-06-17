@@ -1,8 +1,8 @@
 <?php
 /**
- * Ridgeway Barns functions and definitions
+ * messels functions and definitions
  *
- * @package ridgeway
+ * @package messels
  */
 
 /****************************************************/
@@ -10,50 +10,52 @@
 /****************************************************/
 
 /* Enqueue scripts and styles */
-add_action('wp_enqueue_scripts', 'ridgeway_scripts');
+add_action('wp_enqueue_scripts', 'messels_scripts');
 
 /* Add Menus */
-add_action('init', 'ridgeway_custom_menu');
+add_action('init', 'messels_custom_menu');
 
 /* Dashboard Config */
-add_action('wp_dashboard_setup', 'ridgeway_dashboard_widget');
+add_action('wp_dashboard_setup', 'messels_dashboard_widget');
 
 /* Dashboard Style */
-add_action('admin_head', 'ridgeway_custom_fonts');
+add_action('admin_head', 'messels_custom_fonts');
 
 /* Remove Default Menu Items */
-add_action('admin_menu', 'ridgeway_remove_menus');
+add_action('admin_menu', 'messels_remove_menus');
 
 /* Change Posts Columns */
-add_filter('manage_posts_columns', 'ridgeway_manage_columns');
+add_filter('manage_posts_columns', 'messels_manage_columns');
 
 /* Reorder Admin Menu */
-add_filter('custom_menu_order', 'ridgeway_reorder_menu');
-add_filter('menu_order', 'ridgeway_reorder_menu');
+add_filter('custom_menu_order', 'messels_reorder_menu');
+add_filter('menu_order', 'messels_reorder_menu');
 
 /* Remove Comments Link */
-add_action('wp_before_admin_bar_render', 'ridgeway_manage_admin_bar');
+add_action('wp_before_admin_bar_render', 'messels_manage_admin_bar');
 
 
 /****************************************************/
 /*                     Functions                     /
 /****************************************************/
 
-function ridgeway_scripts() {
-	wp_enqueue_style( 'ridgeway-style', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);
-	wp_enqueue_script( 'ridgeway-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true);
-	wp_enqueue_script( 'ridgeway-intersection-js', get_template_directory_uri() . '/inc/js/intersection.js', array('jquery'), false, true);
+function messels_scripts() {
+	wp_enqueue_style( 'messels-style', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);
+	wp_enqueue_script( 'messels-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true);
+	wp_enqueue_script( 'messels-intersection-js', get_template_directory_uri() . '/inc/js/intersection.js', array('jquery'), false, true);
+	wp_enqueue_script( 'anime-js', '//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js', array(), true); 
+    wp_enqueue_script( 'lodash-js', '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js', array(), true); 
 }
 
 add_filter( 'script_loader_tag', function ( $tag, $handle ) {
 
-	if ( 'ridgeway-intersection-js' !== $handle )
+	if ( 'messels-intersection-js' !== $handle )
 		return $tag;
 
 	return str_replace( ' src', ' defer="defer" src', $tag );
 }, 10, 2 );
 
-function ridgeway_custom_menu() {
+function messels_custom_menu() {
 	register_nav_menus(array(
 		'main-menu' => __( 'Main Menu' )
 	));
@@ -63,16 +65,16 @@ function ridgeway_custom_menu() {
 	));
 }
 
-function ridgeway_dashboard_widget() {
+function messels_dashboard_widget() {
 	global $wp_meta_boxes;
-	wp_add_dashboard_widget('custom_help_widget', 'ridgeway Support', 'ridgeway_dashboard_help');
+	wp_add_dashboard_widget('custom_help_widget', 'messels Support', 'messels_dashboard_help');
 }
 
-function ridgeway_dashboard_help() {
+function messels_dashboard_help() {
 	echo file_get_contents(__DIR__ . "/admin-settings/dashboard.html");
 }
 
-function ridgeway_custom_fonts() {
+function messels_custom_fonts() {
 	echo '<style type="text/css">' . file_get_contents(__DIR__ . "/admin-settings/style-admin.css") . '</style>';
 }
 
@@ -86,16 +88,16 @@ if(function_exists('acf_add_options_page')) {
 	));
 }
 
-function ridgeway_remove_menus(){
+function messels_remove_menus(){
 	remove_menu_page( 'edit-comments.php' ); //Comments
 }
 
-function ridgeway_manage_columns($columns) {
+function messels_manage_columns($columns) {
 	unset($columns["comments"]);
 	return $columns;
 }
 
-function ridgeway_reorder_menu() {
+function messels_reorder_menu() {
     return array(
 		'index.php',                        // Dashboard
 		'separator1',                       // --Space--
@@ -112,7 +114,7 @@ function ridgeway_reorder_menu() {
    );
 }
 
-function ridgeway_manage_admin_bar(){
+function messels_manage_admin_bar(){
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('comments');
 }
@@ -161,3 +163,92 @@ function my_acf_google_map_api( $api ){
     return $api;
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+function excerpt($limit) {
+    $excerpt = explode(' ', get_the_excerpt(), $limit);
+    if (count($excerpt)>=$limit) {
+        array_pop($excerpt);
+        $excerpt = implode(" ",$excerpt).'...';
+      } else {
+        $excerpt = implode(" ",$excerpt);
+      } 
+    $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+    return $excerpt;
+	}
+	
+//List archives by year, then month
+function wp_custom_archive($args = '') {
+    global $wpdb, $wp_locale;
+
+    $defaults = array(
+        'limit' => '',
+        'format' => 'html', 'before' => '',
+        'after' => '', 'show_post_count' => false,
+        'echo' => 1
+    );
+
+    $r = wp_parse_args( $args, $defaults );
+    extract( $r, EXTR_SKIP );
+
+    if ( '' != $limit ) {
+        $limit = absint($limit);
+        $limit = ' LIMIT '.$limit;
+    }
+
+    // over-ride general date format ? 0 = no: use the date format set in Options, 1 = yes: over-ride
+    $archive_date_format_over_ride = 0;
+
+    // options for daily archive (only if you over-ride the general date format)
+    $archive_day_date_format = 'Y/m/d';
+
+    // options for weekly archive (only if you over-ride the general date format)
+    $archive_week_start_date_format = 'Y/m/d';
+    $archive_week_end_date_format   = 'Y/m/d';
+
+    if ( !$archive_date_format_over_ride ) {
+        $archive_day_date_format = get_option('date_format');
+        $archive_week_start_date_format = get_option('date_format');
+        $archive_week_end_date_format = get_option('date_format');
+    }
+
+    //filters
+    $where = apply_filters('customarchives_where', "WHERE post_type = 'post' AND post_status = 'publish'", $r );
+    $join = apply_filters('customarchives_join', "", $r);
+
+    $output = '<ul>';
+
+        $query = "SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, count(ID) as posts FROM $wpdb->posts $join $where GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY post_date DESC $limit";
+        $key = md5($query);
+        $cache = wp_cache_get( 'wp_custom_archive' , 'general');
+        if ( !isset( $cache[ $key ] ) ) {
+            $arcresults = $wpdb->get_results($query);
+            $cache[ $key ] = $arcresults;
+            wp_cache_set( 'wp_custom_archive', $cache, 'general' );
+        } else {
+            $arcresults = $cache[ $key ];
+        }
+        if ( $arcresults ) {
+            $afterafter = $after;
+            foreach ( (array) $arcresults as $arcresult ) {
+                $url = get_month_link( $arcresult->year, $arcresult->month );
+                $year_url = get_year_link($arcresult->year);
+                /* translators: 1: month name, 2: 4-digit year */
+                $text = sprintf(__('%s'), $wp_locale->get_month($arcresult->month));
+                $year_text = sprintf('%d', $arcresult->year);
+                if ( $show_post_count )
+                    $after = '&nbsp;('.$arcresult->posts.')' . $afterafter;
+                $year_output = get_archives_link($year_url, $year_text, $format, $before, $after);              
+                $output .= ( $arcresult->year != $temp_year ) ? $year_output : '';
+                $output .= get_archives_link($url, $text, $format, $before, $after);
+
+                $temp_year = $arcresult->year;
+            }
+        }
+
+    $output .= '</ul>';
+
+    if ( $echo )
+        echo $output;
+    else
+        return $output;
+}

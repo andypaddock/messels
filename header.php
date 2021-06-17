@@ -2,7 +2,7 @@
 /**
  * Header
  *
- * @package ridgeway
+ * @package messels
  */
 
 ?>
@@ -18,7 +18,7 @@
 
     <title><?php echo the_title(); ?></title>
 
-    <link rel="stylesheet" href="https://use.typekit.net/axv0hre.css">
+    <link rel="stylesheet" href="https://use.typekit.net/duq7wxv.css">
     <!--TYPEKIT INJECT-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -33,26 +33,32 @@
 <body <?php body_class(); ?>>
 
     <section class="navigation">
-        <div class="container">
-            <div id="menu-toggle">
-                <div id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <!-- <div id="cross">
-                    <span></span>
-                    <span></span>
-                </div> -->
-                <div id="close-menu"></div>
+        <div class="nav-holder">
+            <div class="row upper-nav">
+                <div class="nav-logo"><?php get_template_part("inc/img/headerlogo");?></div>
             </div>
-            <div class="nav">
-                <?wp_nav_menu( array( 
+            <div class="row lower-nav">
+                <div class="container">
+
+                    <div class="nav">
+                        <?wp_nav_menu( array( 
 						'theme_location' => 'main-menu'
 					) ); ?>
-            </div>
-            <div class="contact-button">
-                <a href="#contact-form">Contact</a>
+                    </div>
+                    <div class="contact-button">
+                        <a href="#contact-form">Contact</a>
+                        <div id="main-menu-toggle">
+                            <div id="hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="sign-in"><a href="#contact-form">Sign In</a></div>
+                        <div class="sign-out"><a href="#contact-form">Sign Out</a></div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -69,19 +75,5 @@
             </div>
         </div>
     </header><!-- Mobile Menu Overlay -->
-    <main><!--closes in footer.php-->
-        <div class="contact-box">
-            <?php get_template_part("template-parts/socials");?>    
-            <a
-            href="tel:<?php the_field('phone_number', 'options');?>" class="call-us"><i class="fas fa-phone"></i><span>Click to call us on <?php the_field('phone_number', 'options');?></span></a>             
-        </div>
-        
-        <?php if (is_page_template('page-templates/home.php')) { 
-             get_template_part("template-parts/hero"); 
-        } else  ?>
-    
-    
-
-
-
-   
+    <main>
+        <!--closes in footer.php-->

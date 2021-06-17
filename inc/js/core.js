@@ -359,6 +359,15 @@ $(".slide-up, .slide-down, .slide-right, .slow-fade").each(function () {
   }
 });
 
+$(document).ready(function () {
+  if ($('.tabbed-section').length) {
+    $(".tabbed-section__head--tab:nth-child(1)").addClass("active");
+    $(".tabbed-section__body--item:nth-child(1)").addClass("visible");
+  }
+});
+
+
+
 // ========== Add class on entering viewport
 
 $.fn.isInViewport = function () {
@@ -377,12 +386,85 @@ $(window).on("resize scroll", function () {
   });
 });
 
+/***********HOME PAGE WAVY LINES***********/
+$(document).ready(function () {
+  var c = document.getElementById('canvas');
+  var $ = c.getContext('2d');
+  
+  var w = c.width = window.innerWidth;
+  var h = c.height = window.innerHeight;
+  
+  var intLines = 30;
+  var draw = function(t) {
+    $.lineWidth = 1;
+    $.fillStyle = '#1c3245';
+    $.fillRect(0, 0, w, h);
+  
+    for (var i = 0; i < intLines; i++) {
+      $.strokeStyle = '#4e9ad6';
+      $.beginPath();
+      $.moveTo(-1, h / 2);
+      for (var j = 0; j < w; j += 2) {
+        $.lineTo(Math.cos(i / 10) + j + 0.004 * j * j,
+          Math.floor(h / 2 + j / 2 *
+            Math.sin(j / 50 - t / 50 - i / 18) +
+            (i * 25) * Math.sin(j / 55 - (i + t) / 5)));
+      };
+      $.stroke();
+    }
+  }
+  
+  var t = 0;
+  var run = function() {
+    window.requestAnimationFrame(run);
+    t += 0.01; 
+    draw(t);
+  };
+  
+  run()
+  // window.setInterval(run, 50);
+  });
 
 
+
+  function isScrolledIntoView(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+$(window).scroll(function () {
+   $('.flex-link').each(function () {
+      if (isScrolledIntoView(this) === true) {
+          $(this).addClass('in-view')
+      }
+   });
+});
+$(".tabbed-section__head--tab").click(function (e) {
+  var selectedTab = $(this).attr("data-tab");
+  $(".tabbed-section__head--tab.active").removeClass('active');
+  $(this).addClass('active');
+  $(".tabbed-section__body--item.visible").removeClass('visible');
+  $(".tabbed-section__body--item." + selectedTab).addClass('visible');
+});
+
+$(".js-toggle-trigger").click(function (e) {
+  e.preventDefault();
+  $('.js-toggle-target.open').slideUp(300);
+  $('.js-toggle-target.open').removeClass('open ');
+  $(this).siblings('.js-toggle-target').slideDown(300);
+  $(this).siblings('.js-toggle-target').addClass('open');
+  $('.js-toggle-parent.active').removeClass('active');
+  $(this).closest('.js-toggle-parent').addClass('active');
+  
+  setTimeout(scrollToTop, 400);
+});
 
 
 }); //Don't remove ---- end of jQuery wrapper
-
 
 
 

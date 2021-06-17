@@ -2,66 +2,108 @@
 /**
  * ============== Template Name: Home Page
  *
- * @package ridgeway
+ * @package messels
  */
 get_header();?>
 
-<div class="container">
-    <div id="section-intro" class="nav-section section section__extranarrow introduction paragraph text-block">
 
-        <?php the_field('intro_copy');?>
-
-    </div>
-    <div id="gallery" class="nav-section section gallery">
-        <h1 class="heading-primary">Gallery</h1>
-
-        <?php get_template_part('template-parts/fixed-gallery');?>
-    </div>
+<?php get_template_part("template-parts/hero"); ?>
 
 
-    <?php get_template_part('template-parts/directory');?>
 
-    <div id="testimonials" class="nav-section section section__extranarrow testimonials">
-        <h1 class="heading-primary slide-up">Testimonials</h1>
 
-        <?php get_template_part('template-parts/testimonial');?>
-    </div>
-
-    <div id="faq" class="nav-section section section__narrow faq">
-        <h1 class="heading-primary slide-up">FAQ</h1>
-
-        <?php get_template_part('template-parts/accordian');?>
-
-    </div>
-    <div id="contact-form" class="nav-section section section__narrow contact">
-        <h1 class="heading-primary slide-up">Contact</h1>
-        <div class="contact-details">
-            <div class="phone">
-                <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                <div class="phone-detail"><a
-                        href="tel:<?php the_field('phone_number', 'options');?>"><?php the_field('phone_number', 'options');?></a>
-                </div>
+<section class="section-about">
+    <div class="row">
+        <div class="container">
+            <div class="about-heading">
+                <h2 class="heading-primary u-margin-bottom-small"><?php the_field("about_title"); ?></h2>
             </div>
-            <div class="email">
-                <div class="icon"><i class="fas fa-envelope"></i></div>
-                <div class="email-detail"><a
-                        href="mailto:<?php the_field('email_general', 'options');?>"><?php the_field('email_general', 'options');?></a>
-                </div>
+            <div class="about-copy">
+                <?php the_field("about_copy"); ?>
             </div>
         </div>
-        <div class="form-section">
-
-            <h2 class="heading heading__7 mb1"><?php the_sub_field('heading');?></h2>
-            <p class="mb1"><?php the_sub_field('copy');?></p>
-            <?php echo do_shortcode('[contact-form-7 id="88" title="Contact Form"]');?>
-
-        </div>
-
     </div>
+</section>
+<section class="section-features">
+    <div class="row">
+        <div class="flex-link">
+            <div class="flex-text">
+                <h2 class="heading-primary u-margin-bottom-small"><?php the_field("hosting_title"); ?></h2>
+                <?php the_field("hosting_copy"); ?>
+                <?php 
+$link = get_field('link');
+if( $link ): 
+    $link_url = $link['url'];
+    $link_title = $link['title'];
+    $link_target = $link['target'] ? $link['target'] : '_self';
+    ?>
+                <a class="btn btn--darkblue" href="<?php echo esc_url( $link_url ); ?>"
+                    target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                <?php endif; ?>
+            </div>
+            <?php $featureImage = get_field('feature_image');?>
+            <div class="flex-image">
+                <img src="<?php echo $featureImage['url']; ?>" alt="<?php echo $featureImage['alt'] ?>" />
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-about section-about__team">
+    <div class="row">
+        <div class="container">
+            <div class="about-heading">
+                <h2 class="heading-primary u-margin-bottom-small"><?php the_field("about_team_title"); ?></h2>
+            </div>
+            <div class="about-copy">
+                <?php the_field("about_team_copy"); ?>
+            </div>
+        </div>
+    </div>
+</section>
 
+
+
+
+
+<?php if( have_rows('flexible_blocks') ): ?>
+<?php while( have_rows('flexible_blocks') ): the_row(); ?>
+
+<?php if( get_row_layout() == 'text_block' ):?>
+
+<?php get_template_part('template-parts/text');?>
+
+<?php elseif( get_row_layout() == 'process_block' ): ?>
+
+<?php get_template_part('template-parts/process');?>
+
+<?php elseif( get_row_layout() == 'video' ): ?>
+
+<?php get_template_part('template-parts/video');?>
+
+<?php elseif( get_row_layout() == 'double_image_links' ): ?>
+
+<?php get_template_part('template-parts/double', 'links');?>
+
+<?php elseif( get_row_layout() == 'background_bleed' ): ?>
+
+<?php get_template_part('template-parts/bleed');?>
+
+<?php elseif( get_row_layout() == 'product_feed' ): ?>
+
+<?php get_template_part('template-parts/product', 'feed');?>
+
+<?php elseif( get_row_layout() == 'full_width_image' ): ?>
+
+<?php get_template_part('template-parts/full', 'image');?>
+
+
+
+<?php endif; ?>
+<?php endwhile; ?>
+<?php endif; ?>
+<div class="dark-background">
+    <?php get_template_part('template-parts/latestresearch');?>
 </div>
-<div id="location" class="nav-section">
-    <?php get_template_part('template-parts/map');?>
-</div>
+
 
 <?php get_footer();?>
