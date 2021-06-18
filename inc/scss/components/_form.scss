@@ -174,12 +174,16 @@
       border-bottom: 3px solid $color-primary;
     }
   }
+  input[type="submit"] {
+    background: $color-primary-dark;
+    color: $color-primary;
+    text-transform: uppercase;
+    text-align: left;
+  }
 }
 .checkbox label {
   position: relative;
   display: inline-block;
-  margin-bottom: 0.5rem;
-  line-height: 34px;
   text-align: right;
 
   text-transform: uppercase;
