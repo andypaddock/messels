@@ -175,3 +175,76 @@
     }
   }
 }
+.checkbox label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  line-height: 34px;
+  text-align: right;
+
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: hsla(0, 0%, 79%, 1);
+
+  &:hover:before {
+    border-color: white;
+  }
+}
+
+.checkbox label::before,
+.checkbox label::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  /*Needed for the line-height to take effect*/
+}
+
+.checkbox label::before {
+  height: 4rem;
+  width: 4rem;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+  background: $color-tertiary-light;
+}
+
+.checkbox label::after {
+  height: 9px;
+  width: 29px;
+  border-color: #1b1b1b;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(-45deg);
+  left: 5px;
+  top: 11px;
+  transition: all 0.5s ease;
+  z-index: 100;
+  color: $color-primary-dark;
+}
+
+.checkbox label::after {
+  opacity: 0;
+}
+
+.checkbox.checked > label::after {
+  opacity: 1;
+}
+.accept-field {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 200;
+
+  .message {
+    font-size: 1.4rem;
+  }
+
+  label {
+    input {
+      opacity: 0;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

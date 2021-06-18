@@ -462,7 +462,13 @@ $(".js-toggle-trigger").click(function (e) {
   
   setTimeout(scrollToTop, 400);
 });
-
+$('#checker').change(function() {
+  if ($(this).is(':checked')) {
+    $('.checkbox').addClass('checked');
+  } else {
+    $('.checkbox').removeClass('checked');
+  }
+});
 
 }); //Don't remove ---- end of jQuery wrapper
 
