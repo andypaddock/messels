@@ -34,6 +34,7 @@
 
     <section class="navigation">
         <div class="nav-holder">
+
             <div class="row upper-nav">
                 <div class="nav-logo"><?php get_template_part("inc/img/headerlogo");?></div>
             </div>
@@ -59,6 +60,18 @@
                     </div>
 
                 </div>
+            </div>
+            <div id="menu-toggle">
+                <div id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <!-- <div id="cross">
+                    <span></span>
+                    <span></span>
+                </div> -->
+                <div id="close-menu"></div>
             </div>
         </div>
     </section>

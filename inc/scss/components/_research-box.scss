@@ -1,6 +1,9 @@
 .research-block {
   width: 100%;
   @include absCenter;
+  @include respond(tab-port) {
+    display: none;
+  }
 }
 .research-title {
   grid-column: 2/12;
@@ -48,14 +51,23 @@
       }
     }
   }
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+  }
 }
 .research-archive {
   padding: 3rem 0;
   &__sidebar {
     grid-column: 2/4;
+    @include respond(tab-port) {
+      display: none;
+    }
   }
   &__main {
     grid-column: 4/12;
+    @include respond(tab-port) {
+      grid-column: 1/13;
+    }
     li {
       list-style: none;
       display: flex;
