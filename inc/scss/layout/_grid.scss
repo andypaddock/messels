@@ -94,6 +94,40 @@
   @include normMargin;
 }
 .dark-background {
-  padding: 3rem;
+  padding: 5rem;
   background: $color-primary-dark;
+}
+.mid-background {
+  padding: 5rem 0;
+  background: linear-gradient(
+    to top,
+    $color-primary-dark 0%,
+    $color-primary-dark 50%,
+    $color-primary-dark 50%,
+    white 50%,
+    white 100%
+  );
+}
+.off-background {
+  padding: 5rem;
+}
+.right-background {
+  background: linear-gradient(
+    to left,
+    $color-primary-dark 0%,
+    $color-primary-dark 20%,
+    $color-primary-dark 20%,
+    white 20%,
+    white 100%
+  );
+}
+.right-bleed {
+  background: linear-gradient(
+    to left,
+    $color-grey-light-1 0%,
+    $color-grey-light-1 50%,
+    $color-grey-light-1 50%,
+    rgba(255, 0, 0, 0) 50%,
+    rgba(255, 0, 0, 0) 100%
+  );
 }
