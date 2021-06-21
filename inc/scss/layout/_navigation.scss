@@ -469,9 +469,13 @@
     list-style: none;
     padding: 1.3rem;
     transition: all 1s ease-in-out;
+
     li {
       padding: 0 4rem;
       text-align: center;
+      animation: moveInTop 0.5s linear;
+      animation-fill-mode: both;
+
       a {
         position: relative;
         text-transform: uppercase;
@@ -503,6 +507,22 @@
         }
       }
     }
+
+    li:nth-child(1) {
+      animation-delay: 0.25s !important;
+    }
+    li:nth-child(2) {
+      animation-delay: 0.5s !important;
+    }
+    li:nth-child(3) {
+      animation-delay: 0.75s !important;
+    }
+    li:nth-child(4) {
+      animation-delay: 1s !important;
+    }
+    li:nth-child(5) {
+      animation-delay: 1.25s;
+    }
   }
 }
 .scrolled {
@@ -517,14 +537,34 @@
     }
     .nav ul {
       padding-top: 2rem;
+      // transform: translateY(-15rem);
+      li {
+        animation: moveOutTop 0.5s linear;
+        animation-fill-mode: both;
+      }
+      li:nth-child(1) {
+        animation-delay: 0.25s !important;
+      }
+      li:nth-child(2) {
+        animation-delay: 0.5s !important;
+      }
+      li:nth-child(3) {
+        animation-delay: 0.75s !important;
+      }
+      li:nth-child(4) {
+        animation-delay: 1s !important;
+      }
+      li:nth-child(5) {
+        animation-delay: 1.25s;
+      }
     }
   }
   .contact-button {
-    margin-bottom: 0;
+    // margin-bottom: 0;
   }
-  .nav {
-    display: none;
-  }
+  // .nav {
+  //   display: none;
+  // }
   .nav-logo {
     svg {
       flex-grow: 1;

@@ -1,6 +1,6 @@
 <?php
 
-$heroImage = get_field('hero_image');
+$heroImage = get_field('background_image');
 
 ?>
 
