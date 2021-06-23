@@ -4,6 +4,17 @@ $videoImage = get_field('video_placeholder');
 
 ?>
 
+
+<?php
+// STARTS - wrapp your content with this conditional statement
+if ( post_password_required() ) :
+
+    // if your post is password protected with our Pro version, show our password form instead
+    echo get_the_password_form();
+
+/* display the password protected content if the correct password is entered */ 
+else : ?>
+
 <div class="flexible-content">
 
     <?php if( get_field('research_post_type') == 'mail' ):?>
@@ -29,3 +40,9 @@ $videoImage = get_field('video_placeholder');
     <?php endif; ?>
 
 </div>
+<div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+        <?php the_content(); ?>
+    </main>
+</div>
+<?php endif; ?>
