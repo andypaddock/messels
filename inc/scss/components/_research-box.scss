@@ -32,7 +32,8 @@
       }
       .pub-date {
         font-size: 1.2rem;
-        font-style: italic;
+        font-weight: 100;
+        color: $color-primary-dark;
       }
       .research-excerpt {
         padding-top: 2rem;
@@ -93,13 +94,13 @@
     }
     .pub-date {
       font-size: 1.2rem;
-      font-style: italic;
-      color: $color-primary;
+      font-weight: 100;
+      color: $color-primary-dark;
     }
     .heading-tertiary {
       padding-bottom: 3rem;
       a {
-        color: $color-black;
+        color: $color-primary-dark;
       }
     }
   }

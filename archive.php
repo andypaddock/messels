@@ -16,32 +16,49 @@ if ( have_posts() ) :
                 <?php wp_list_categories( array(
         'orderby'    => 'name',
         'show_count' => true,
-        'exclude'    => array( 10 )
-    ) ); ?>
+        'exclude'    => array( 10 ),
+        'title_li' => '<h3 class="archive">' . __('Filter', 'textdomain') . '</h3>'
+     ) ); ?>
+            </ul>
+            <h3 class="archive">Arhive</h3>
+
+
+            <ul>
+                <?php
+/**/
+$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date)
+FROM $wpdb->posts WHERE post_status = 'publish'
+AND post_type = 'post' ORDER BY post_date DESC");
+foreach($years as $year) :
+?>
+                <li class="archive-year"><?php echo $year; ?>
+
+                    <ul class="archive-sub-menu">
+                        <?    $months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date)
+        FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post'
+        AND YEAR(post_date) = '".$year."' ORDER BY post_date ASC");
+        foreach($months as $month) :
+        ?>
+                        <li><a href="<?php echo get_month_link($year, $month); ?>">
+
+                                <?php echo date( 'F', mktime(0, 0, 0, $month) );?></a>
+
+                        </li>
+
+                        <?php endforeach;?>
+
+                    </ul>
+
+                </li>
+
+                <?php endforeach; ?>
+
             </ul>
 
-            <?php wp_custom_archive(); ?>
+
         </div>
         <div class="research-archive__main">
-            <h2><?php
-		if ( is_category() ) {
-			single_cat_title( 'Category Archive: ' );
-		} elseif ( is_tag() ) {
-			single_tag_title( 'Tag Archive: ' );
-		} elseif ( is_author() ) {
-			the_post();
-			echo 'Author Archives: ' . get_the_author();
-			rewind_posts();
-		} elseif ( is_day() ) {
-			echo 'Daily Archives: ' . get_the_date();
-		} elseif ( is_month() ) {
-			echo 'Monthly Archives: ' . get_the_date( 'F Y' );
-		} elseif ( is_year() ) {
-			echo 'Yearly Archives: ' . get_the_date( 'Y' );
-		} else {
-			echo 'Archives: ';
-		}
-        ?></h2>
+
             <ul>
                 <?php
 	while ( have_posts() ) : the_post(); ?>

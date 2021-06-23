@@ -470,6 +470,13 @@ $('#checker').change(function() {
   }
 });
 
+
+
+$('#main-menu-toggle').click(function(){
+  $(this).toggleClass('open');
+  $('.nav-holder').toggleClass('open');
+})
+
 }); //Don't remove ---- end of jQuery wrapper
 
 

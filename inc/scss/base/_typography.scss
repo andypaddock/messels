@@ -61,20 +61,22 @@ body {
   font-size: 2rem;
   font-family: "mrs-eaves";
   text-transform: uppercase;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
   font-weight: 100;
   backface-visibility: hidden;
 }
 
 .heading-tertiary {
   font-family: "roboto";
-  font-size: $default-font-size;
+  font-size: 2.2rem;
   font-weight: 400;
   text-transform: uppercase;
 }
 
 p {
   font-size: $default-font-size;
+  font-weight: 100;
+  margin-bottom: 1.5rem; /* between paragraphs */
 
   // &:not(:last-child) {
   //   margin-bottom: 3rem;
