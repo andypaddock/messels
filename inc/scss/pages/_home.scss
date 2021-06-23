@@ -4,7 +4,7 @@
   padding: 10rem 0;
 
   @include respond(tab-port) {
-    padding: 20rem 0;
+    padding: 5rem 2rem;
   }
   .about-heading {
     text-align: right;
@@ -12,6 +12,7 @@
     padding: 5rem 5rem 5rem 0;
     @include respond(tab-port) {
       grid-column: 1/13;
+      padding: 0;
     }
   }
   .about-copy {
@@ -23,6 +24,9 @@
   }
   .heading-primary {
     text-align: right;
+    @include respond(tab-port) {
+      text-align: center;
+    }
   }
 }
 

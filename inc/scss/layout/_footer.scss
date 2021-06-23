@@ -69,9 +69,9 @@
       width: 8rem;
     }
 
-    @include respond(tab-port) {
-      margin-bottom: 6rem;
-    }
+    // @include respond(tab-port) {
+    //   margin-bottom: 6rem;
+    // }
   }
   .contact-block {
     grid-column: 2/5;

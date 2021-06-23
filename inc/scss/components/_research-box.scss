@@ -105,3 +105,11 @@
     }
   }
 }
+.video-block {
+  grid-column: 2/12;
+  video {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+}

@@ -5,19 +5,23 @@
  * @package ridgeway
  */
 get_header();?>
+<div class="row">
+    <div class="container">
+        <div class="terms-side-bar">
+            <div class="feather-icon">
+                <?php get_template_part("inc/img/featherlogo");?></div>
+        </div>
+        <div class="terms">
 
-<div class="container">
-    <div class="section section__narrow">
+            <h2 class="heading-secondary"><?php the_field("page_heading"); ?></h2>
 
-        <h1 class="heading heading__lg slow-fade mt2"><?php the_field("page_heading"); ?></h1>
+
+
+            <?php the_field("main_body_text"); ?>
+
+        </div>
+
     </div>
-    <div class="section section__narrow legal-block">
-
-
-        <?php the_field("main_body_text"); ?>
-
-    </div>
-
 </div>
 
 <?php get_footer();?>

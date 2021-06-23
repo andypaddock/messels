@@ -18,6 +18,8 @@
   transition: padding 2s ease-in-out;
   @include respond(tab-port) {
     display: block;
+    background-image: none !important;
+    padding: 0;
   }
   .flex-text {
     background: $color-white;
@@ -38,27 +40,49 @@
       right: 10%;
       transform: translate(-50%, -50%);
       color: $color-primary;
+      @include respond(tab-port) {
+        transform: rotate(90deg) translate(-50%, -50%);
+        top: -30%;
+        right: 50%;
+      }
     }
     .heading-primary {
       padding-right: 20rem;
+      @include respond(tab-port) {
+        padding: 0;
+        text-align: center;
+      }
     }
     p,
     .btn--darkblue {
       display: none;
     }
+    @include respond(tab-port) {
+      padding: 4rem 3rem;
+    }
   }
   .flex-image {
     flex-basis: 20%;
     transition: flex-basis 2s ease-in-out;
+    @include respond(tab-port) {
+      display: none;
+    }
   }
   &.in-view {
     padding: 0;
+    @include respond(tab-port) {
+      margin-top: 15rem;
+    }
 
     .flex-text {
       flex-basis: 50%;
       &::after {
         right: -399%;
         transition: 2s;
+        @include respond(tab-port) {
+          top: -100%;
+          right: unset;
+        }
       }
       p,
       .btn--darkblue {

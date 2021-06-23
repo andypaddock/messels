@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   height: 50vh;
-  z-index: -1;
+
   .hero-image {
     position: absolute;
     width: 100%;
@@ -26,6 +26,9 @@
   .hero-title {
     text-align: center;
     @include absCenter75;
+    @include respond(tab-port) {
+      top: 50%;
+    }
   }
 }
 .subhero-block {
