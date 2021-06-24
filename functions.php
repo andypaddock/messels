@@ -62,6 +62,10 @@ function messels_custom_menu() {
 
 	register_nav_menus(array(
 		'mobile-menu' => __( 'Mobile Menu' )
+    ));
+    
+    register_nav_menus(array(
+		'footer-menu' => __( 'Footer Menu' )
 	));
 }
 
@@ -252,3 +256,8 @@ function wp_custom_archive($args = '') {
     else
         return $output;
 }
+
+function custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );

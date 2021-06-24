@@ -84,7 +84,7 @@ $fallbackImage = get_field ('fallback_image', 'options'); ?>
 					echo trim( $output, $comma );
 				} ?>
                         </p>
-                        <?php the_excerpt() ?>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
                     </div>
                 </li>
 

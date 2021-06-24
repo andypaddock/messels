@@ -42,8 +42,8 @@ $videoImage = get_field('video_placeholder');
 
 </div>
 
+<?php the_content(); ?>
 
-<?php echo get_post_field('post_content', $post->ID); ?>
 <?php } else { ?>
 <div class="row">
     <div class="container">

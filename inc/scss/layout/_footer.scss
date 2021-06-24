@@ -35,7 +35,7 @@
   }
   .lower-footer {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     background: $color-tertiary-light;
     padding: 2rem 0;
     @include respond(tab-port) {
@@ -44,6 +44,7 @@
     a {
       text-decoration: none;
       color: $color-white;
+      font-weight: $light-font-weight;
     }
   }
   .socials {
@@ -80,13 +81,13 @@
     }
   }
   .site-links {
-    grid-column: 5/8;
+    grid-column: 5/9;
     @include respond(tab-port) {
       grid-column: 1/13;
     }
   }
   .account-links {
-    grid-column: 8/12;
+    grid-column: 9/11;
     @include respond(tab-port) {
       grid-column: 1/13;
     }
@@ -111,6 +112,7 @@
     display: inline-block;
     p {
       font-size: 1.3rem;
+      margin-bottom: 0;
     }
 
     @include respond(tab-port) {

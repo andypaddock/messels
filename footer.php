@@ -42,13 +42,13 @@ $footerBG = get_field('footer_bg', 'options');
                 <div class="site-links">
                     <h4 class="light-text">Links</h4>
                     <div class="footer__navigation">
-                        <ul class="footer__list">
-                            <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
-                            <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
-                            <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
-                            <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
-                            <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
-                        </ul>
+                        <?php 
+$args = array(
+    'menu_class' => 'footer__list',        
+    'menu' => '(footer-menu)'
+);
+wp_nav_menu( $args ); 
+?>
                     </div>
 
                 </div>
@@ -56,7 +56,8 @@ $footerBG = get_field('footer_bg', 'options');
                     <h4 class="light-text">My Account</h4>
                     <p class="footer__copyright">
 
-                        Copyright &copy;
+                        <a href="<?php echo wp_login_url( $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ); ?>"
+                            title="Members Area Login" rel="home">Sign In</a>
                     </p>
                 </div>
             </div>
