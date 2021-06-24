@@ -4,16 +4,8 @@ $videoImage = get_field('video_placeholder');
 
 ?>
 
+<?php if ( is_user_logged_in() ) { ?>
 
-<?php
-// STARTS - wrapp your content with this conditional statement
-if ( post_password_required() ) :
-
-    // if your post is password protected with our Pro version, show our password form instead
-    echo get_the_password_form();
-
-/* display the password protected content if the correct password is entered */ 
-else : ?>
 
 <div class="flexible-content">
 
@@ -37,12 +29,33 @@ else : ?>
             </div>
         </div>
     </div>
+
+    <?php elseif( get_field('research_post_type') == 'plain' ): ?>
+    <div class="row">
+        <div class="container">
+            <div class="post-block">
+                <?php the_field( 'research_post_copy' );?>
+            </div>
+        </div>
+    </div>
     <?php endif; ?>
 
 </div>
-<div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-        <?php the_content(); ?>
-    </main>
+
+
+<?php echo get_post_field('post_content', $post->ID); ?>
+<?php } else { ?>
+<div class="row">
+    <div class="container">
+        <div class="log-in-link">
+            <p>This content has restricted access, please <a
+                    href="<?php echo wp_login_url( $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ); ?>"
+                    title="Members Area Login" rel="home">log in</a> to
+                view this content.</p>
+            <a href="<?php echo wp_login_url( $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ); ?>"
+                title="Members Area Login" class="btn btn--darkblue" rel="home">Sign in</a>
+
+        </div>
+    </div>
 </div>
-<?php endif; ?>
+<?php } ?>
