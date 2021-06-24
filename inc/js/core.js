@@ -473,8 +473,8 @@ $('#checker').change(function() {
 
 
 $('#main-menu-toggle').click(function(){
-  $(this).toggleClass('open');
-  $('.nav-holder').toggleClass('open');
+  $(this).toggleClass('opened');
+  $('.nav-holder').toggleClass('opened');
 })
 
 }); //Don't remove ---- end of jQuery wrapper

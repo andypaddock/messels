@@ -550,7 +550,7 @@
 .scrolled #main-menu-toggle {
   display: block;
 }
-.nav-holder.open {
+.nav-holder.opened {
   .nav-logo {
     svg {
       flex-grow: 0.01;
@@ -558,5 +558,6 @@
   }
   .nav ul li {
     animation: moveInTop 0.5s ease-in-out;
+    animation-fill-mode: both;
   }
 }
