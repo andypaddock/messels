@@ -398,7 +398,7 @@ $(document).ready(function () {
   var intLines = 30;
   var draw = function(t) {
     $.lineWidth = 1;
-    $.fillStyle = '#1c3245';
+    $.fillStyle = 'rgba(0,0,0,0.5)';
     $.fillRect(0, 0, w, h);
   
     for (var i = 0; i < intLines; i++) {
