@@ -9,13 +9,15 @@
   }
 }
 .flex-link {
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-size: 50% 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
   display: flex;
-  background: white;
-  padding: 5rem 5rem 5rem 0;
-  transition: padding 2s ease-in-out;
+  // background: white;
+  padding: 10rem 5rem 10rem 0;
+  transition-property: background-size, background-position;
+  transition-duration: 2s;
+  transition-timing-function: ease-in-out;
   @include respond(tab-port) {
     display: block;
     background-image: none !important;
@@ -26,7 +28,9 @@
     position: relative;
     flex-basis: 80%;
     padding: 4rem 8rem;
-    transition: flex-basis 2s ease-in-out;
+    transition-property: flex-basis, padding;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
     &::after {
       font-family: "Font Awesome 5 Free";
       content: "\f061";
@@ -62,20 +66,24 @@
     }
   }
   .flex-image {
+    transition: all 2s ease-in-out;
     flex-basis: 20%;
-    transition: flex-basis 2s ease-in-out;
     @include respond(tab-port) {
       display: none;
     }
   }
   &.in-view {
     padding: 0;
+    transition: all 2s ease-in-out;
+    background-position: 100% 50%;
+    background-size: 50%;
     @include respond(tab-port) {
       margin-top: 15rem;
     }
 
     .flex-text {
       flex-basis: 50%;
+      padding: 4rem;
       &::after {
         right: -399%;
         transition: 2s;
