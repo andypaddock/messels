@@ -1,6 +1,7 @@
 //@prepros-prepend jquery.magnific-popup.js
 //@prepros-prepend owl.carousel.min.js
 
+
 jQuery(document).ready(function($) {
   /* ADD CLASS ON LOAD*/
 
@@ -476,6 +477,16 @@ $('#main-menu-toggle').click(function(){
   $(this).toggleClass('opened');
   $('.nav-holder').toggleClass('opened');
 })
+
+
+
+
+
+
+
+
+
+
 
 }); //Don't remove ---- end of jQuery wrapper
 
