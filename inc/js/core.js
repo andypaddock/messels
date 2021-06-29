@@ -402,7 +402,7 @@ $(document).ready(function () {
     $.fillRect(0, 0, w, h);
   
     for (var i = 0; i < intLines; i++) {
-      $.strokeStyle = '#4e9ad6';
+      $.strokeStyle = '#a0afbc';
       $.beginPath();
       $.moveTo(-1, h / 2);
       for (var j = 0; j < w; j += 2) {
