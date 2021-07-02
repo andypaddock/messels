@@ -41,9 +41,9 @@ $videoImage = get_field('video_placeholder');
     <?php endif; ?>
 
 </div>
-
-<?php the_content(); ?>
-
+<div class="oldcontent">
+    <?php the_content(); ?>
+</div>
 <?php } else { ?>
 <div class="row">
     <div class="container">

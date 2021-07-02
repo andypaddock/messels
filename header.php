@@ -10,7 +10,18 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYQ9W4RGF4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-SYQ9W4RGF4');
+    </script>
     <meta charset="UTF-8">
     <meta name="description" content="<?php echo $excerpt; ?>">
     <meta name="keywords" content=" ">
