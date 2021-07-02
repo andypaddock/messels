@@ -35,11 +35,11 @@
     <section class="navigation">
         <div class="nav-holder">
 
-            <div class="row upper-nav">
-                <div class="nav-logo"><?php get_template_part("inc/img/headerlogo");?></div>
-            </div>
-            <div class="row lower-nav">
+            <div class="row">
                 <div class="container">
+                    <div class="nav-logo"><?php get_template_part("inc/img/headerlogo");?></div>
+
+
 
                     <div class="nav">
                         <?wp_nav_menu( array( 
@@ -48,13 +48,13 @@
                     </div>
                     <div class="contact-button">
                         <a href="/contact">Contact</a>
-                        <div id="main-menu-toggle">
+                        <!-- <div id="main-menu-toggle">
                             <div id="hamburger">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="sign-in"><a href="/wp-login.php">Sign In</a></div>
                         <div class="sign-out"><a href="/wp-login.php?action=logout">Sign Out</a></div>
                     </div>

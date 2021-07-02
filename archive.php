@@ -6,7 +6,7 @@ if ( have_posts() ) :
     ?>
 <!-- ******************* Hero Content ******************* -->
 
-<?php get_template_part("template-parts/archivehero"); ?>
+<!-- <?php get_template_part("template-parts/archivehero"); ?> -->
 
 <!-- ******************* Hero Content END ******************* -->
 <div class="row">

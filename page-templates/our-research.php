@@ -7,7 +7,7 @@
 get_header();?>
 <!-- ******************* Hero Content ******************* -->
 
-<?php get_template_part("template-parts/researchhero"); ?>
+<!-- <?php get_template_part("template-parts/researchhero"); ?> -->
 
 <!-- ******************* Hero Content END ******************* -->
 <div class="row">
@@ -79,9 +79,15 @@ $fallbackImage = get_field ('fallback_image', 'options'); ?>
                         <span class="pub-date"><?php the_date(); ?></span>
                         <h3 class="heading-tertiary"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </h3>
+                        <?php if ( is_user_logged_in() ) { ?>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
+                        <a class="research-link alt-font" href="<?php the_permalink(); ?>">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                        <?php } else { ?>
                         <a class="research-link alt-font" href="<?php the_permalink(); ?>">Read More <i
                                 class="fas fa-arrow-right"></i></a>
                         <span class="pub-date">(Requires Log In)</span>
+                        <?php } ?>
                     </div>
                 </li>
                 <?php endwhile; ?>
