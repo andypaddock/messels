@@ -69,8 +69,9 @@ $fallbackImage = get_field ('fallback_image', 'options'); ?>
                     <img
                         src="<?php if (empty($image)){echo esc_url($fallbackImage['url']);} else {echo esc_url($image['url']);}   ?>">
                     <div class="research-meta">
-                        <h2><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
-                        <p class="post-meta"><?php the_time( 'F jS, Y' ); ?> | <a
+                        <span class="pub-date"><?php the_date(); ?></span>
+                        <h3 class="heading-tertiary"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
+                        <!-- <p class="post-meta"><?php the_time( 'F jS, Y' ); ?> | <a
                                 href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
                             | <?php
 				$categories = get_the_category();
@@ -83,15 +84,22 @@ $fallbackImage = get_field ('fallback_image', 'options'); ?>
 					}
 					echo trim( $output, $comma );
 				} ?>
-                        </p>
+                        </p> -->
+                        <?php if ( is_user_logged_in() ) { ?>
                         <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
+                        <a class="research-link alt-font" href="<?php the_permalink(); ?>">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                        <?php } else { ?>
+                        <a class="research-link alt-font" href="<?php the_permalink(); ?>">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                        <span class="pub-date">(Requires Log In)</span>
+                        <?php } ?>
                     </div>
                 </li>
 
                 <?php endwhile;
 
-else :
-	echo '<p>There are no posts!</p>';
+
 
 endif;?>
             </ul>
