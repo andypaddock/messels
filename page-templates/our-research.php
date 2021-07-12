@@ -2,14 +2,10 @@
 /**
  * ============== Template Name: Research Template
  *
- * @package ridgeway
+ * @package messels
  */
 get_header();?>
-<!-- ******************* Hero Content ******************* -->
 
-<!-- <?php get_template_part("template-parts/researchhero"); ?> -->
-
-<!-- ******************* Hero Content END ******************* -->
 <div class="row">
     <div class="container research-archive">
 
@@ -73,8 +69,13 @@ $wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish
                 <li><?php 
 $image = get_field('thumbnail_image');
 $fallbackImage = get_field ('fallback_image', 'options'); ?>
-                    <img
-                        src="<?php if (empty($image)){echo esc_url($fallbackImage['url']);} else {echo esc_url($image['url']);}   ?>">
+
+                    <?php if (has_post_thumbnail( $post->ID ) ): ?>
+                    <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+                    <div class="custom-bg" style="background-image: url('<?php echo $image[0]; ?>')">
+
+                    </div>
+                    <?php endif; ?>
                     <div class="research-meta">
                         <span class="pub-date"><?php the_date(); ?></span>
                         <h3 class="heading-tertiary"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -104,5 +105,6 @@ $fallbackImage = get_field ('fallback_image', 'options'); ?>
 
 
     </div>
+</div>
 
-    <?php get_footer();?>
+<?php get_footer();?>

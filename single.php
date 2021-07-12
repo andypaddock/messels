@@ -6,11 +6,7 @@
  */
 get_header(); ?>
 
-<!-- ******************* Hero Content ******************* -->
 
-<!-- <?php get_template_part("template-parts/researchhero"); ?> -->
-
-<!-- ******************* Hero Content END ******************* -->
 
 
 <div class="row">

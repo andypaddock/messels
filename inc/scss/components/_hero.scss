@@ -36,6 +36,9 @@
   top: -20vh;
   .subhero-title {
     grid-column: 1/6;
+    @include respond(tab-port) {
+      grid-column: 1/12;
+    }
   }
 }
 .subhero-textblock {

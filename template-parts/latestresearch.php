@@ -10,11 +10,14 @@ foreach ($postslist as $post) :  setup_postdata($post); ?>
             <div class="research-item"><?php 
 $image = get_field('thumbnail_image');
 $fallbackImage = get_field ('fallback_image', 'options'); ?>
-                <div class="research-image"
-                    style="background-image: url(<?php if (empty($image)){echo esc_url($fallbackImage['url']);} else {echo esc_url($image['url']);}   ?>">
+
+
+                <?php if (has_post_thumbnail( $post->ID ) ): ?>
+                <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+                <div class="research-image" style="background-image: url('<?php echo $image[0]; ?>')">
+
                 </div>
-
-
+                <?php endif; ?>
 
                 <div class="research-copy">
                     <h3 class="heading-secondary"><a href="<?php 

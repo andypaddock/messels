@@ -256,3 +256,5 @@ function wp_custom_archive($args = '') {
     else
         return $output;
 }
+// This theme uses post thumbnails
+add_theme_support( 'post-thumbnails' );

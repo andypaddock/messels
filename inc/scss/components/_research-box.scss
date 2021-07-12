@@ -32,7 +32,7 @@
       }
       .pub-date {
         font-size: 1.2rem;
-        font-weight: 100;
+        font-weight: 300;
         color: $color-primary-dark;
       }
       .research-excerpt {
@@ -71,7 +71,8 @@
     }
     li {
       list-style: none;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
       background: $color-off-white;
       margin: 2rem 0;
       border-right: 2rem solid $color-primary-dark;
@@ -94,7 +95,7 @@
     }
     .pub-date {
       font-size: 1.2rem;
-      font-weight: 100;
+      font-weight: 300;
       color: $color-primary-dark;
     }
     .heading-tertiary {

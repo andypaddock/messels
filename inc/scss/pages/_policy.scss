@@ -1,0 +1,14 @@
+.terms {
+  &__section {
+    padding: 2rem 0 1rem;
+  }
+  &__block {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+}
+.terms__block:nth-of-type(odd) {
+  background: $color-grey-light-1;
+}

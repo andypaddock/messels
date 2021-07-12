@@ -42,16 +42,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-
     <section class="navigation">
         <div class="nav-holder">
-
             <div class="row">
                 <div class="container">
                     <div class="nav-logo"><?php get_template_part("inc/img/headerlogo");?></div>
-
-
-
                     <div class="nav">
                         <?wp_nav_menu( array( 
 						'theme_location' => 'main-menu'
@@ -59,17 +54,9 @@
                     </div>
                     <div class="contact-button">
                         <a href="/contact">Contact</a>
-                        <!-- <div id="main-menu-toggle">
-                            <div id="hamburger">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div> -->
                         <div class="sign-in"><a href="/wp-login.php">Sign In</a></div>
                         <div class="sign-out"><a href="/wp-login.php?action=logout">Sign Out</a></div>
                     </div>
-
                 </div>
             </div>
             <div id="menu-toggle">
@@ -78,16 +65,15 @@
                     <span></span>
                     <span></span>
                 </div>
-                <!-- <div id="cross">
+                <div id="cross">
                     <span></span>
                     <span></span>
-                </div> -->
+                </div>
                 <div id="close-menu"></div>
             </div>
         </div>
     </section>
     <header>
-
         <div id="mobileNav" class="overlay">
             <!-- Overlay content -->
             <div class="overlay-content">
@@ -95,7 +81,7 @@
 						'theme_location' => 'mobile-menu'
 					) ); ?>
 
-                <div class="overlay-button"><a href="#contact-form">Contact</a></div>
+                <div class="overlay-button"><a href="/contact">Contact</a></div>
             </div>
         </div>
     </header><!-- Mobile Menu Overlay -->

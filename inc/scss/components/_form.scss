@@ -117,6 +117,10 @@
   padding: 5rem 0;
   display: flex;
   grid-gap: 5rem;
+  @include respond(tab-port) {
+    grid-column: 1/13;
+    flex-direction: column;
+  }
   &__sidebar {
     display: flex;
     grid-gap: 2rem;

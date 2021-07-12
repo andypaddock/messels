@@ -87,9 +87,6 @@ wp_nav_menu( $args );
         </div>
     </div>
 </footer>
-
-
-</div><!-- #page -->
 <?php wp_footer(); ?>
 </body>
 

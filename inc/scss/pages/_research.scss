@@ -26,6 +26,13 @@
   .archive-year {
     color: $color-primary;
   }
+  .custom-bg {
+    width: 100%;
+    background-size: contain;
+    background-position: top left;
+    background-repeat: no-repeat !important;
+    margin: 1rem;
+  }
 }
 .log-in-link {
   grid-column: 4/10;

@@ -65,6 +65,14 @@ body {
   font-weight: $light-font-weight;
   backface-visibility: hidden;
 }
+.heading-secondary-sub {
+  font-size: 1.5rem;
+  font-family: "mrs-eaves";
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-weight: $light-font-weight;
+  backface-visibility: hidden;
+}
 
 .heading-tertiary {
   font-family: "roboto";

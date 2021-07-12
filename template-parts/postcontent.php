@@ -42,7 +42,8 @@ $videoImage = get_field('video_placeholder');
 
 </div>
 <div class="oldcontent">
-    <?php the_content(); ?>
+    <?php $content = apply_filters( 'the_content', get_the_content() );
+echo $content; ?></iframe>
 </div>
 <?php } else { ?>
 <div class="row">
