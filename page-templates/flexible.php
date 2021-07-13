@@ -50,8 +50,6 @@ get_header();?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>
-<div class="dark-background">
-    <?php get_template_part('template-parts/latestresearch');?>
-</div>
+
 
 <?php get_footer();?>

@@ -19,7 +19,7 @@ $footerBG = get_field('footer_bg', 'options');
 
                 <?php get_template_part("inc/img/headerlogo");?>
 
-                <a href="" class=" btn btn--darkblue">Join Now</a>
+                <a href="/wp-login.php" class=" btn btn--darkblue">Log In</a>
 
             </div>
         </div>
@@ -28,7 +28,7 @@ $footerBG = get_field('footer_bg', 'options');
         <div class="container">
             <div class="lower-footer narrow">
                 <div class="contact-block">
-                    <h4 class="light-text">Support</h4>
+                    <h4 class="light-text">Contact</h4>
                     <div class="footer__support">
                         <p>Phone: <a
                                 href="tel:<?php the_field('phone_number', 'options');?>"><?php the_field('phone_number', 'options');?></a>
@@ -36,7 +36,7 @@ $footerBG = get_field('footer_bg', 'options');
                         <p>Email: <a
                                 href="mailto:<?php the_field('email_general', 'options');?>"><?php the_field('email_general', 'options');?></a>
                         </p>
-                        <?php get_template_part("template-parts/socials");?>
+
                     </div>
                 </div>
                 <div class="site-links">
@@ -64,7 +64,7 @@ wp_nav_menu( $args );
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mb0">
         <div class="container">
             <div class="footer-bar narrow">
                 <div class="copyright">
@@ -86,6 +86,16 @@ wp_nav_menu( $args );
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="container">
+            <div class="fin-bar narrow">
+                <div class="fin-statement"><?php the_field('fin_statement', 'options');?></div>
+            </div>
+        </div>
+    </div>
+
+
 </footer>
 <?php wp_footer(); ?>
 </body>

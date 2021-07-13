@@ -14,8 +14,6 @@ get_header();?>
     <?php get_template_part('template-parts/tabs');?>
 </div>
 
-<div class="dark-background">
-    <?php get_template_part('template-parts/latestresearch');?>
-</div>
+
 
 <?php get_footer();?>

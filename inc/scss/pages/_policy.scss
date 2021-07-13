@@ -8,6 +8,19 @@
     margin: 1rem 0;
     padding: 1rem;
   }
+  ul,
+  ol {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+    padding: 1rem 0;
+    li {
+      padding: 1rem 0;
+    }
+  }
+  .heading-secondary {
+    margin-bottom: 2rem;
+  }
 }
 .terms__block:nth-of-type(odd) {
   background: $color-grey-light-1;

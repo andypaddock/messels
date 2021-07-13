@@ -20,7 +20,7 @@ if ( have_posts() ) :
         'title_li' => '<h3 class="archive">' . __('Filter', 'textdomain') . '</h3>'
      ) ); ?>
             </ul>
-            <h3 class="archive">Arhive</h3>
+            <h3 class="archive">Archive</h3>
 
 
             <ul>

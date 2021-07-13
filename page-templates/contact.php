@@ -52,8 +52,10 @@ get_header();?>
 
 
                         <div class="team-block"></div>
-                        <div class="address-block"></div>
-                        <?php get_template_part("template-parts/socials");?>
+                        <div class="address-block">
+                            <?php the_field('address_block', 'options');?>
+                        </div>
+
 
                     </div>
 

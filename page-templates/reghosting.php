@@ -13,8 +13,6 @@ get_header();?>
 
 
 
-<div class="off-background">
-    <?php get_template_part('template-parts/latestresearch');?>
-</div>
+
 
 <?php get_footer();?>

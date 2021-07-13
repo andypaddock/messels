@@ -76,13 +76,4 @@ if( $link ):
 </section>
 
 
-
-
-
-
-<div class="dark-background">
-    <?php get_template_part('template-parts/latestresearch');?>
-</div>
-
-
 <?php get_footer();?>
