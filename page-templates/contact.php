@@ -31,29 +31,25 @@ get_header();?>
 
 
                         <?php if( have_rows('team_member_details', 'options') ): ?>
-
                         <?php while( have_rows('team_member_details', 'options') ): the_row(); ?>
                         <div class="team-block">
-                            <h2 class="heading-primary"><?php the_sub_field('team_name'); ?></h2>
-                            <p><a class="robo-font"
+                            <h2 class="heading-secondary"><?php the_sub_field('team_name'); ?></h2>
+                            <h3 class="pub-date"><a class="robo-font"
                                     href="tel:<?php the_sub_field('team_phone_number');?>"><?php the_sub_field('team_phone_number');?></a>
-                            </p>
-                            <p><a class="robo-font"
+                            </h3>
+                            <h3 class="pub-date"><a class="robo-font"
                                     href="mailto:<?php the_sub_field('team_email_address');?>"><?php the_sub_field('team_email_address');?></a>
-                            </p>
+                            </h3>
                         </div>
 
 
                         <?php endwhile; ?>
-
                         <?php endif; ?>
 
-
-
-
-                        <div class="team-block"></div>
                         <div class="address-block">
-                            <?php the_field('address_block', 'options');?>
+
+                            <p><?php the_field('address_block', 'options');?></p>
+
                         </div>
 
 

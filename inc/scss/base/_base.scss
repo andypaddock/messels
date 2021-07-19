@@ -27,7 +27,7 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 0 1rem;
+  // padding: 0 1rem;
   // background: $color-primary-dark;
 
   @include respond(tab-port) {
@@ -46,4 +46,7 @@ section {
   @include respond(tab-port) {
     margin-bottom: 1rem;
   }
+}
+main {
+  padding: 0 1rem;
 }

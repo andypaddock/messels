@@ -32,6 +32,7 @@ body {
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+    line-height: 1.1em;
 
     @include respond(phone) {
       letter-spacing: 1rem;
@@ -83,7 +84,7 @@ body {
 
 p {
   font-size: $default-font-size;
-  font-weight: 200;
+  font-weight: 300;
   margin-bottom: 1.5rem; /* between paragraphs */
 
   // &:not(:last-child) {

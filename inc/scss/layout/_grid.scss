@@ -123,9 +123,9 @@
     to left,
     $color-primary-dark 0%,
     $color-primary-dark 20%,
-    $color-primary-dark 20%,
-    white 20%,
-    white 100%
+    $color-primary-dark 30%,
+    #f2f2f2 20%,
+    #f2f2f2 100%
   );
   @include respond(tab-port) {
     background: url(./inc/img/eagle.png);

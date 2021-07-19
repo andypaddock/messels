@@ -24,8 +24,10 @@
   }
   .heading-primary {
     text-align: right;
+    padding-left: 3rem;
     @include respond(tab-port) {
       text-align: center;
+      padding-left: 0;
     }
   }
 }
