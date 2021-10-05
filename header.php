@@ -46,7 +46,9 @@
         <div class="nav-holder">
             <div class="row">
                 <div class="container">
-                    <div class="nav-logo"><?php get_template_part("inc/img/headerlogo");?></div>
+                    <div class="nav-logo"><a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>"
+                            title="<?php wp_title(''); ?>"><?php get_template_part("inc/img/headerlogo");?></a>
+                    </div>
                     <div class="nav">
                         <?wp_nav_menu( array( 
 						'theme_location' => 'main-menu'

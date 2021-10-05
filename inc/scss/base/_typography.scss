@@ -12,6 +12,9 @@ body {
   letter-spacing: 0.6rem;
   font-family: "mrs-eaves";
   font-weight: 100;
+  @include respond(mini-lap) {
+    font-size: 3rem;
+  }
 }
 
 .heading-primary {

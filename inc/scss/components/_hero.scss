@@ -25,9 +25,15 @@
   }
   .hero-title {
     text-align: center;
-    @include absCenter75;
+    @include absCenter60;
     @include respond(tab-port) {
       top: 50%;
+    }
+    @include respond(mini-lap) {
+      top: 50%;
+      svg {
+        width: 10rem;
+      }
     }
   }
 }

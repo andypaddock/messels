@@ -72,7 +72,7 @@ wp_nav_menu( $args );
                 </div>
                 <div class="terms-links">
                     <a href="/privacy-policy/">Privacy policy</a> |
-                    <a href="/terms-conditions/">Terms & Conditions</a>
+                    <a href="/terms/">Terms & Conditions</a>
                 </div>
                 <div class="silverless">
 
