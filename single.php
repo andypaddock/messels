@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts
  *
- * @package kitjames
+ * @package messels
  */
 get_header(); ?>
 

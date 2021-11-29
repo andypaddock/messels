@@ -13,5 +13,6 @@
         <source src="<?php echo esc_url( $flexVideo['url'] ); ?>" type="video/mp4">
 
     </video>
+
     <?php endif;?>
 </div>
