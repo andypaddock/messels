@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages
  *
- * @package messels
+ * @package kitjames
  */
 
 get_header();
