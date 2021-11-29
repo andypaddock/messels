@@ -283,7 +283,11 @@ function wsds_defer_scripts( $tag, $handle, $src ) {
 	$defer_scripts = array( 
     'contact-form-7',
     'plyr-js',
+<<<<<<< HEAD
+    'messels-core-js',
+=======
     'kitjames-core-js',
+>>>>>>> b8b05b99a1210e92858317f1cc3fe9dfde6ea098
     'anime-js',
     'lodash-js',
     'google-recaptcha',
