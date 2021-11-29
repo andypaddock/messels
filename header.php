@@ -2,7 +2,7 @@
 /**
  * Header
  *
- * @package messels
+ * @package kitjames
  */
 
 ?>
@@ -43,49 +43,21 @@
 
 <body <?php body_class(); ?>>
     <section class="navigation">
-        <div class="nav-holder">
-            <div class="row">
-                <div class="container">
-                    <div class="nav-logo"><a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>"
-                            title="<?php wp_title(''); ?>"><?php get_template_part("inc/img/headerlogo");?></a>
-                    </div>
-                    <div class="nav">
-                        <?wp_nav_menu( array( 
-						'theme_location' => 'main-menu'
-					) ); ?>
-                    </div>
-                    <div class="contact-button">
-                        <a href="/contact">Contact</a>
-                        <div class="sign-in"><a href="/wp-login.php">Sign In</a></div>
-                        <div class="sign-out"><a href="/wp-login.php?action=logout">Sign Out</a></div>
-                    </div>
-                </div>
-            </div>
-            <div id="menu-toggle">
-                <div id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div id="cross">
-                    <span></span>
-                    <span></span>
-                </div>
-                <div id="close-menu"></div>
-            </div>
-        </div>
-    </section>
-    <header>
-        <div id="mobileNav" class="overlay">
-            <!-- Overlay content -->
-            <div class="overlay-content">
-                <?wp_nav_menu( array( 
-						'theme_location' => 'mobile-menu'
-					) ); ?>
 
-                <div class="overlay-button"><a href="/contact">Contact</a></div>
-            </div>
+    </section>
+    <header class="header">
+        <div class="header__logo-box">
+            <img src="img/logo-white.png" alt="Logo" class="header__logo">
         </div>
-    </header><!-- Mobile Menu Overlay -->
+
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">Outdoors</span>
+                <span class="heading-primary--sub">is where life happens</span>
+            </h1>
+
+            <a href="#section-tours" class="btn btn--white btn--animated">Discover our tours</a>
+        </div>
+    </header>
     <main>
         <!--closes in footer.php-->

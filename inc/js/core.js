@@ -120,48 +120,7 @@ window.addEventListener("scroll", event => {
 
 	// ============ Carousels
  
-	var owlTestimonials = $('.owl-carousel.testimonial-carousel');
- owlTestimonials.owlCarousel({
-   loop: true,
-   nav: true,
-   navText: ["<div class='arrow-left icon'></div>", "<div class='arrow-right icon'></div>"],
-   lazyLoad: true,
-   dots: false,
-   autoplay: false,
-   responsive: {
-	 0: {
-	   items: 1
-	 }
-   },
- });
-
- $(".owl-next").click(function () {
-   owlTestimonials.trigger('nextPartner.owl.carousel');
- });
- $('.owl-prev').click(function () {
-   owlTestimonials.trigger('prevPartner.owl.carousel');
- });
-
- $(document).ready(function () {
-
-    $('.gallery').magnificPopup({
-      delegate: 'a.lightbox-gallery',
-      type: 'image',
-      gallery: {
-        enabled: true
-      }
-    });
-  });
-
-	$(document).ready(function() {
-		$('.gallery').magnificPopup({
-			delegate: 'a',
-			type: 'image',
-			gallery: {
-				enabled: true,
-			},
-		});
-	});
+	
 
   /* CLASS AND FOCUS ON CLICK */
   $(".menu-item a").click(function() {
@@ -197,42 +156,7 @@ window.addEventListener("scroll", event => {
       .toggleClass("open");
   });
 
-  // ========== Tab Slider
-
-  var action = false,
-    clicked = false;
-  var Owl = {
-    init: function() {
-      Owl.carousel();
-    },
-    carousel: function() {
-      var owl;
-      $(document).ready(function() {
-        owl = $(".tabs").owlCarousel({
-          items: 1,
-          center: true,
-          nav: false,
-          dots: true,
-          loop: true,
-          margin: 10,
-          dotsContainer: ".test",
-          navText: ["prev", "next"]
-        });
-        $(".owl-next").on("click", function() {
-          action = "next";
-        });
-        $(".owl-prev").on("click", function() {
-          action = "prev";
-        });
-        $(".tabs-header").on("click", "li", function(e) {
-          owl.trigger("to.owl.carousel", [$(this).index(), 300]);
-        });
-      });
-    }
-  };
-  $(document).ready(function() {
-    Owl.init();
-  });
+  
 
   /***********HERO SLIDER***********/
   var slideCount = $("#slider ul li").length;
@@ -387,44 +311,6 @@ $(window).on("resize scroll", function () {
   });
 });
 
-/***********HOME PAGE WAVY LINES***********/
-$(document).ready(function () {
-  var c = document.getElementById('canvas');
-  var $ = c.getContext('2d');
-  
-  var w = c.width = window.innerWidth;
-  var h = c.height = window.innerHeight;
-  
-  var intLines = 30;
-  var draw = function(t) {
-    $.lineWidth = 1;
-    $.fillStyle = 'rgba(0,0,0,0.5)';
-    $.fillRect(0, 0, w, h);
-  
-    for (var i = 0; i < intLines; i++) {
-      $.strokeStyle = '#a0afbc';
-      $.beginPath();
-      $.moveTo(-1, h / 2);
-      for (var j = 0; j < w; j += 2) {
-        $.lineTo(Math.cos(i / 10) + j + 0.004 * j * j,
-          Math.floor(h / 2 + j / 2 *
-            Math.sin(j / 50 - t / 50 - i / 18) +
-            (i * 25) * Math.sin(j / 55 - (i + t) / 5)));
-      };
-      $.stroke();
-    }
-  }
-  
-  var t = 0;
-  var run = function() {
-    window.requestAnimationFrame(run);
-    t += 0.01; 
-    draw(t);
-  };
-  
-  run()
-  // window.setInterval(run, 50);
-  });
 
 
 
@@ -481,7 +367,13 @@ $('#main-menu-toggle').click(function(){
 
 
 
-
+$(".toggle-block label").click(function () {
+  var otherLabels = $(this).parent().siblings(".item").find("label");
+  otherLabels.removeClass("collapsed");
+  otherLabels.next().slideUp();
+  $(this).toggleClass("collapsed");
+  $(this).next().slideToggle();
+});
 
 
 

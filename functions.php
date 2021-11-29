@@ -1,8 +1,8 @@
 <?php
 /**
- * messels functions and definitions
+ * kitjames functions and definitions
  *
- * @package messels
+ * @package kitjames
  */
 
 /****************************************************/
@@ -10,52 +10,52 @@
 /****************************************************/
 
 /* Enqueue scripts and styles */
-add_action('wp_enqueue_scripts', 'messels_scripts');
+add_action('wp_enqueue_scripts', 'kitjames_scripts');
 
 /* Add Menus */
-add_action('init', 'messels_custom_menu');
+add_action('init', 'kitjames_custom_menu');
 
 /* Dashboard Config */
-add_action('wp_dashboard_setup', 'messels_dashboard_widget');
+add_action('wp_dashboard_setup', 'kitjames_dashboard_widget');
 
 /* Dashboard Style */
-add_action('admin_head', 'messels_custom_fonts');
+add_action('admin_head', 'kitjames_custom_fonts');
 
 /* Remove Default Menu Items */
-add_action('admin_menu', 'messels_remove_menus');
+add_action('admin_menu', 'kitjames_remove_menus');
 
 /* Change Posts Columns */
-add_filter('manage_posts_columns', 'messels_manage_columns');
+add_filter('manage_posts_columns', 'kitjames_manage_columns');
 
 /* Reorder Admin Menu */
-add_filter('custom_menu_order', 'messels_reorder_menu');
-add_filter('menu_order', 'messels_reorder_menu');
+add_filter('custom_menu_order', 'kitjames_reorder_menu');
+add_filter('menu_order', 'kitjames_reorder_menu');
 
 /* Remove Comments Link */
-add_action('wp_before_admin_bar_render', 'messels_manage_admin_bar');
+add_action('wp_before_admin_bar_render', 'kitjames_manage_admin_bar');
 
 
 /****************************************************/
 /*                     Functions                     /
 /****************************************************/
 
-function messels_scripts() {
-	wp_enqueue_style( 'messels-style', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);
-	wp_enqueue_script( 'messels-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), filemtime( get_stylesheet_directory() . '/inc/js/compiled.js' ), true);
-	// wp_enqueue_script( 'messels-intersection-js', get_template_directory_uri() . '/inc/js/intersection.js', array('jquery'), false, true);
+function kitjames_scripts() {
+	wp_enqueue_style( 'kitjames-style', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);
+	wp_enqueue_script( 'kitjames-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), filemtime( get_stylesheet_directory() . '/inc/js/compiled.js' ), true);
+	// wp_enqueue_script( 'kitjames-intersection-js', get_template_directory_uri() . '/inc/js/intersection.js', array('jquery'), false, true);
 	wp_enqueue_script( 'anime-js', '//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js', array(), true); 
     wp_enqueue_script( 'lodash-js', '//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js', array(), true); 
 }
 
 add_filter( 'script_loader_tag', function ( $tag, $handle ) {
 
-	if ( 'messels-intersection-js' !== $handle )
+	if ( 'kitjames-intersection-js' !== $handle )
 		return $tag;
 
 	return str_replace( ' src', ' defer="defer" src', $tag );
 }, 10, 2 );
 
-function messels_custom_menu() {
+function kitjames_custom_menu() {
 	register_nav_menus(array(
 		'main-menu' => __( 'Main Menu' )
 	));
@@ -69,16 +69,16 @@ function messels_custom_menu() {
 	));
 }
 
-function messels_dashboard_widget() {
+function kitjames_dashboard_widget() {
 	global $wp_meta_boxes;
-	wp_add_dashboard_widget('custom_help_widget', 'messels Support', 'messels_dashboard_help');
+	wp_add_dashboard_widget('custom_help_widget', 'kitjames Support', 'kitjames_dashboard_help');
 }
 
-function messels_dashboard_help() {
+function kitjames_dashboard_help() {
 	echo file_get_contents(__DIR__ . "/admin-settings/dashboard.html");
 }
 
-function messels_custom_fonts() {
+function kitjames_custom_fonts() {
 	echo '<style type="text/css">' . file_get_contents(__DIR__ . "/admin-settings/style-admin.css") . '</style>';
 }
 
@@ -92,16 +92,16 @@ if(function_exists('acf_add_options_page')) {
 	));
 }
 
-function messels_remove_menus(){
+function kitjames_remove_menus(){
 	remove_menu_page( 'edit-comments.php' ); //Comments
 }
 
-function messels_manage_columns($columns) {
+function kitjames_manage_columns($columns) {
 	unset($columns["comments"]);
 	return $columns;
 }
 
-function messels_reorder_menu() {
+function kitjames_reorder_menu() {
     return array(
 		'index.php',                        // Dashboard
 		'separator1',                       // --Space--
@@ -118,7 +118,7 @@ function messels_reorder_menu() {
    );
 }
 
-function messels_manage_admin_bar(){
+function kitjames_manage_admin_bar(){
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('comments');
 }
@@ -258,3 +258,41 @@ function wp_custom_archive($args = '') {
 }
 // This theme uses post thumbnails
 add_theme_support( 'post-thumbnails' );
+
+
+
+
+
+/*	
+* Getting script tags
+* Thanks http://wordpress.stackexchange.com/questions/54064/how-do-i-get-the-handle-for-all-enqueued-scripts
+*/
+
+// add_action( 'wp_print_scripts', 'wsds_detect_enqueued_scripts' );
+// function wsds_detect_enqueued_scripts() {
+// 	global $wp_scripts;
+// 	foreach( $wp_scripts->queue as $handle ) :
+// 		echo $handle . ' | ';
+// 	endforeach;
+// }
+
+add_filter( 'script_loader_tag', 'wsds_defer_scripts', 10, 3 );
+function wsds_defer_scripts( $tag, $handle, $src ) {
+
+	// The handles of the enqueued scripts we want to defer
+	$defer_scripts = array( 
+    'contact-form-7',
+    'plyr-js',
+    'kitjames-core-js',
+    'anime-js',
+    'lodash-js',
+    'google-recaptcha',
+    'wpcf7-recaptcha',
+	);
+
+    if ( in_array( $handle, $defer_scripts ) ) {
+        return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+    }
+    
+    return $tag;
+} 

@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages
  *
- * @package messels
+ * @package kitjames
  */
 
 get_header(); ?>
