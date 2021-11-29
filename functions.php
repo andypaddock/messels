@@ -258,3 +258,41 @@ function wp_custom_archive($args = '') {
 }
 // This theme uses post thumbnails
 add_theme_support( 'post-thumbnails' );
+
+
+
+
+
+/*	
+* Getting script tags
+* Thanks http://wordpress.stackexchange.com/questions/54064/how-do-i-get-the-handle-for-all-enqueued-scripts
+*/
+
+// add_action( 'wp_print_scripts', 'wsds_detect_enqueued_scripts' );
+// function wsds_detect_enqueued_scripts() {
+// 	global $wp_scripts;
+// 	foreach( $wp_scripts->queue as $handle ) :
+// 		echo $handle . ' | ';
+// 	endforeach;
+// }
+
+add_filter( 'script_loader_tag', 'wsds_defer_scripts', 10, 3 );
+function wsds_defer_scripts( $tag, $handle, $src ) {
+
+	// The handles of the enqueued scripts we want to defer
+	$defer_scripts = array( 
+    'contact-form-7',
+    'plyr-js',
+    'messels-core-js',
+    'anime-js',
+    'lodash-js',
+    'google-recaptcha',
+    'wpcf7-recaptcha',
+	);
+
+    if ( in_array( $handle, $defer_scripts ) ) {
+        return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+    }
+    
+    return $tag;
+} 
